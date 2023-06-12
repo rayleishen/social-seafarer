@@ -4,7 +4,9 @@ import praw, json
 import pandas as pd
 from praw.models import MoreComments
 
-with open('config.json') as config_file:
+import os
+
+with open(os.getcwd() + '/config.json') as config_file:
     data = json.load(config_file)
 
 c_id = data['client_id']
@@ -15,9 +17,6 @@ u_a = data['user_a']
 reddit_read_only = praw.Reddit(client_id=c_id,         # your client id
                                client_secret=c_s,      # your client secret
                                user_agent=u_a)        # your user agent
-
-url = "https://www.reddit.com/r/Animemes/comments/13yuisl/i_said_what_i_said_moments/"
-
 
 
 #----------------------------------------------------------------------------------------------
@@ -39,9 +38,8 @@ def grab_reddit(url):
 
     post_dump = json.dumps(post_data)
 
-    with open('post.json', 'w') as f:
+    with open(os.getcwd() + '/csv/post.json', 'w') as f:
         json.dump(post_data, f)
-
 
 
     post_comments = []
@@ -56,7 +54,7 @@ def grab_reddit(url):
     comments = pd.DataFrame(post_comments, columns=['comment'])
     comments
 
-    comments.to_csv("comments.csv", index=True)
+    comments.to_csv("csv/reddit_comments.csv", index=True)
 
 def grab_youtube():
     print("###")

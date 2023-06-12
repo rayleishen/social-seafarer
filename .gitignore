@@ -1,3 +1,4 @@
 config.json
 dynamic_products/
 csv/
+__pycache__/

@@ -20,9 +20,12 @@ import re
 
 
 
-def keywords(sens_rating):
+def keywords(site, sens_rating):
     # Read the CSV file into a pandas DataFrame
-    df = pd.read_csv('comments.csv')
+    if site == "reddit":      
+        df = pd.read_csv('csv/reddit_comments.csv')
+    elif site == "youtube":      
+        df = pd.read_csv('csv/youtube_comments.csv')
 
     # Select the second column and convert it to a text Series
     comments_series = df.iloc[:, 1].astype(str)
@@ -37,14 +40,11 @@ def keywords(sens_rating):
     r=Rake()
     r.extract_keywords_from_text(clean_comments_string)
 
-    keywords_file = open("keywords.txt", "w")    
+    keywords_file = open("dynamic_products/keywords.txt", "w")    
         
     for rating, keyword in r.get_ranked_phrases_with_scores():
         if rating > sens_rating:
-            print(rating, keyword)
+            #print(rating, keyword)
             keywords_file.write(str(rating) + " " + keyword + "\n")
             
     keywords_file.close()
-
-
-keywords(5)

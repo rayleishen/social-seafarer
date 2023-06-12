@@ -14,6 +14,7 @@ from nltk.sentiment.vader import SentimentIntensityAnalyzer as SIA
 
 
 import csv
+import os
 
 #can be changed by user
 num_top_comments=999 #how many of the top comments default=99
@@ -21,7 +22,7 @@ sens=0.2 #how sensative is VADER default=0.2
 
 
 #add parameters
-def run(num_top_comments, sens):
+def run(site, num_top_comments, sens):
     if num_top_comments == 0:
         num_top_comments = 999
     if sens == 0:
@@ -30,7 +31,15 @@ def run(num_top_comments, sens):
     sia=SIA()
     results = []
     comments = []
-    with open('comments.csv', errors="ignore") as file_obj:
+    
+    if site == "reddit":
+        site_csv = os.getcwd() + '/csv/reddit_comments.csv'
+        site_csv_labels = os.getcwd() + '/csv/reddit_comments_labels.csv'
+    if site == "youtube":
+        site_csv = os.getcwd() + '/csv/youtube_comments.csv'
+        site_csv_labels = os.getcwd() + '/csv/youtube_comments_labels.csv'
+    
+    with open(site_csv, errors="ignore") as file_obj:
         reader_obj = csv.reader(file_obj)
         for line in reader_obj:
             #a=sia.polarity_scores(str(line))
@@ -40,7 +49,7 @@ def run(num_top_comments, sens):
             results.append(pol_score)
                     
             
-    pprint(results[:num_top_comments], width=100)
+    #pprint(results[:num_top_comments], width=100)
 
     df = pd.DataFrame.from_records(results)
     df.head()
@@ -53,21 +62,21 @@ def run(num_top_comments, sens):
 
 
     #Clears csv and saves data
-    f = open('reddit_comments_labels.csv', "w+")
+    f = open(site_csv_labels, "w+")
     f.close()
     df2 = df[['comment', 'label']]
-    df2.to_csv('reddit_comments_labels.csv', mode='a', encoding='utf-8', index=False)
+    df2.to_csv(site_csv_labels, mode='a', encoding='utf-8', index=False)
 
 
-    print("Positive comments:\n")
-    pprint(list(df[df['label'] == 1].comment)[:5], width=200)
+    #print("Positive comments:\n")
+    #pprint(list(df[df['label'] == 1].comment)[:5], width=200)
 
-    print("\nNegative comments:\n")
-    pprint(list(df[df['label'] == -1].comment)[:5], width=200)
+    #print("\nNegative comments:\n")
+    #pprint(list(df[df['label'] == -1].comment)[:5], width=200)
 
-    print(df.label.value_counts())
+    #print(df.label.value_counts())
 
-    print(df.label.value_counts(normalize=True) * 100)
+    #print(df.label.value_counts(normalize=True) * 100)
     
     return df
     
@@ -89,7 +98,7 @@ def bar_graph(df):
     #plt.show()
     #plt.savefig('bar_graph.png', bbox_inches='tight')
     
-    plt.savefig('bar_graph.png')
+    plt.savefig('dynamic_products/bar_graph.png')
 
 
 def pie_chart(df):   
@@ -101,8 +110,4 @@ def pie_chart(df):
     #create pie chart
     plt.pie(data, labels = labels, colors = colors, autopct='%.0f%%')
     
-    plt.savefig('pie_chart.png')
-
-
-df = run(0, 0)
-bar_graph(df)
+    plt.savefig('dynamic_products/pie_chart.png')
