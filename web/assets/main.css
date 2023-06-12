@@ -1,0 +1,139 @@
+
+/* our fonts */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&family=Geologica&display=swap');
+@import url(fontawesome-all.min.css);
+
+body {
+    background-color: #0A7386;
+  }
+
+h1 {
+    color:white;
+    font-family: 'Geologica', sans-serif;
+    font-size: 80px;
+    margin: 0px;
+}
+
+h2 {
+    color:white;
+    font-family: 'Comfortaa';
+    font-size: 22px;
+}
+
+h3 {
+    color:white;
+    font-family: 'Comfortaa';
+    text-decoration: none;
+    font-size: 12px;
+}
+
+h4 {
+    color:white;
+    font-family: 'Comfortaa';
+    font-size: 10px;
+
+}
+
+
+.container-title {
+    margin-top: 3%;
+}
+
+.container{
+    margin-top: 5%;
+    padding-top: 1%;
+}
+
+.container-images{
+    margin-top: 5%;
+    padding-top: 1%;
+    column-width: 10px;
+}
+
+.content {
+margin-top: 0;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.nav {
+    margin-top: 0px;
+    margin-right: 2%;
+    text-align: right;
+}
+
+.nav li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+
+/* lets me see the hitbox, and size of text */
+.hitbox {
+    border: 1px solid white;
+}
+
+
+
+/* elements */
+
+.square {
+    height: 4px;
+    width: 486px;
+    background-color: white;
+}
+
+.square2 {
+    height: 4px;
+    width: 270px;
+    background-color:#A7A7A7;
+ 
+}
+
+.button {
+    border-radius: 25px;
+    background: #062D40;
+    border: none;
+    color: white;
+    width: 100px;
+    height: 28px; 
+    margin-left: 3%;
+    padding-right: 7%;
+    
+}
+
+.searchbar {
+    border-radius: 25px;
+    background: white;
+    border: none;
+    color: black;
+    width: 200px;
+    height: 25px; 
+    text-align: left;
+    margin: auto;
+    padding-left: 2%;
+    
+}
+
+.icon {
+    margin-right: 100px;
+}
+
+.page {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+
+.page-break{
+    margin: 50%;
+}
+
+
+/* links */
+link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
