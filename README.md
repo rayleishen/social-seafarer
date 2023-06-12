@@ -1,2 +1,2 @@
 # social-seafarer
-caleb pls add cool description
+Processing metrics. Deducing data.Presenting quantitative results.
