@@ -17,7 +17,7 @@ h1 {
 h2 {
     color:white;
     font-family: 'Comfortaa';
-    font-size: 22px;
+    font-size: 20px;
 }
 
 h3 {
@@ -25,18 +25,23 @@ h3 {
     font-family: 'Comfortaa';
     text-decoration: none;
     font-size: 12px;
+    font-weight: normal;
 }
 
 h4 {
     color:white;
     font-family: 'Comfortaa';
     font-size: 10px;
-
+    font-weight: normal;
 }
 
 
 .container-title {
     margin-top: 3%;
+}
+
+.container-title2{
+    margin-left: 8%;
 }
 
 .container{
@@ -45,9 +50,17 @@ h4 {
 }
 
 .container-images{
-    margin-top: 5%;
-    padding-top: 1%;
+    margin: 10px, 10px;
     column-width: 10px;
+    width:90%;
+
+    display:flex;
+    justify-content: space-between;
+}
+
+.container-text{
+    width: 200px;
+    height: 65px;
 }
 
 .content {
@@ -74,6 +87,19 @@ margin-top: 0;
 .hitbox {
     border: 1px solid white;
 }
+
+ul {
+    list-style-type: none;
+
+}
+
+.ul1 {
+    padding: 0;
+    list-style-type: none;
+
+}
+
+
 
 
 
@@ -128,7 +154,7 @@ margin-top: 0;
 
 
 .page-break{
-    margin: 50%;
+    margin: 30%;
 }
 
 
