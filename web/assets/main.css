@@ -49,14 +49,6 @@ h4 {
     padding-top: 1%;
 }
 
-.container-images{
-    margin: 10px, 10px;
-    column-width: 10px;
-    width:90%;
-
-    display:flex;
-    justify-content: space-between;
-}
 
 .container-text{
     width: 200px;
