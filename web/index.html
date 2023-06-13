@@ -27,10 +27,13 @@
 
 <div class = "flex-container">
     
-    <ul class = "container-title"> <img src="Images/SSCompassLogo.png" alt="Logo"></ul>
+    <ul class = "container-title"> <img src="images/SSCompassLogo.png" alt="Logo"></ul>
 
     <div class = "container">
         <article>
+
+        <script src="assets/database.js" type="module"></script>
+
         <h1>Social Seafarer</h1>
         <div class = "content">
             <h2>Its easy to get lost in the vastness of the internet. <br> Measure your social impact.</h2>
@@ -47,15 +50,13 @@
                     
                     <input id="enterURL" class="searchbar" onkeyup="java()" type="text" name="search" placeholder="Paste link...">
                     <i class="fa-solid fa-magnifying-glass"></i> <!-- does not work -->
-                    <button id="submit" class = "button"> <span class="fa-solid fa-user"> Go </span> </button>
+                    <button id="submit" class="button" onclick="SubmitData();"> <span class="fa-solid fa-user"> Go </span> </button>
                         
                     <!-- raymond, link your java here -->
                     <!-- <script src="./name.js"></script> -->
 
-                    <script src="assets/database.js"></script>
-
                 </div>
-
+            </div>
         </div>
     </div>
 </div>

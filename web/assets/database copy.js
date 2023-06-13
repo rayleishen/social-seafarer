@@ -32,6 +32,7 @@ from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js"
 // (the one where you imported "initializeApp" from),
 //but change "firebase-app" to "firebase-database"
 
+
 const db = getDatabase();
 
 var enterURL = document.querySelector("#enterURL");
