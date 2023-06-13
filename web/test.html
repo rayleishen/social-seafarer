@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang = "eng">
+<link rel="stylesheet" href="assets/main.css">
+<head>
+
+<style>
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  margin: 0;
+}
+
+.section {
+  height: 100vh;
+}
+
+#home {
+  background: #aff8db;
+}
+
+#about {
+  background: #ffabab;
+}
+
+#contact {
+  background: #fff5ba;
+}
+
+</style>
+
+<body>
+<div class="section" id="home" data-label="Home">Home</div>
+<div class="section" id="about" data-label="About Us">About Us</div>
+<div class="section" id="contact" data-label="Get In Touch">Get In Touch</div>
+
+
+<script>
+function activateNavigation() {
+  const sections = document.querySelectorAll(".section");
+  const navContainer = document.createElement("nav");
+  const navItems = Array.from(sections).map((section) => {
+    return `
+                    <div class="nav-item" data-for-section="${section.id}">
+                        <a href="#${section.id}" class="nav-link"></a>
+                        <span class="nav-label">${section.dataset.label}</span>
+                    </div>
+                `;
+  });
+
+  navContainer.classList.add("nav");
+  navContainer.innerHTML = navItems.join("");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      document.querySelectorAll(".nav-link").forEach((navLink) => {
+        navLink.classList.remove("nav-link-selected");
+      });
+
+      const visibleSection = entries.filter((entry) => entry.isIntersecting)[0];
+
+      document
+        .querySelector(
+          `.nav-item[data-for-section="${visibleSection.target.id}"] .nav-link`
+        )
+        .classList.add("nav-link-selected");
+    },
+    { threshold: 0.5 }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+
+  document.body.appendChild(navContainer);
+}
+
+activateNavigation();
+
+
+</script>
+</body>
+</head>

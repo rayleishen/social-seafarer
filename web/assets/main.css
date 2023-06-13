@@ -4,7 +4,10 @@
 @import url(fontawesome-all.min.css);
 
 body {
-    background-color: #0A7386;
+    background: linear-gradient(#e66465, #9198e5)
+    /*background: linear-gradient(#0A7386, #09697C, #062D40)*/
+
+    /*background-image: linear-gradient(#0A7386,#09697C #062D40);*/
   }
 
 h1 {
@@ -42,6 +45,7 @@ h4 {
 
 .container-title2{
     margin-left: 8%;
+    margin-top: 30%;
 }
 
 .container{
@@ -54,14 +58,13 @@ h4 {
     column-width: 10px;
     width:90%;
     height:90%;
-    border: 1px solid white;
     display:flex;
     justify-content: space-between;
     table-layout: fixed
 }
 
 .container-text{
-    width: 200px;
+    width: 20%;
     height: 65px;
 }
 
@@ -73,16 +76,51 @@ margin-top: 0;
     display: flex;
 }
 
-.nav {
+.nav-bar {
     margin-top: 0px;
     margin-right: 2%;
     text-align: right;
 }
 
-.nav li {
-    display: inline-block;
-    padding: 0px 20px;
-}
+.nav {
+    --nav-gap: 15px;
+    padding: var(--nav-gap);
+    position: fixed;
+    left: 2%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .nav-item {
+    align-items: center;
+    display: flex;
+    margin-bottom: var(--nav-gap);
+  }
+  
+  .nav-link:hover ~ .nav-label {
+    opacity: 1;
+  }
+  
+  .nav-label {
+    color: #000000;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.1s;
+  }
+  
+  .nav-link {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    height: var(--nav-gap);
+    margin-left: var(--nav-gap);
+    transition: transform 0.1s;
+    width: var(--nav-gap);
+  }
+  
+  .nav-link-selected {
+    background: #000000;
+    transform: scale(1.4);
+  }
 
 
 /* lets me see the hitbox, and size of text */
@@ -156,7 +194,91 @@ ul {
 
 
 .page-break{
-    margin: 30%;
+    margin: 15%;
+}
+
+.sectionLinks li {
+    list-style-type: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+    margin: 8px 0 8px 20px;
+    border: 1px solid #fff;
+}
+
+.sectionLinks {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 45%;
+    z-index: 10;
+}
+
+.dotstyle ul {
+	position: fixed;
+	display: flex;
+    flex-direction: column;
+    top: 45%;
+    z-index: 10;
+	cursor: default;
+}
+
+/* animates our scrolling */
+html {
+    scroll-behavior: smooth;
+  }
+  
+.dotstyle li {
+	position: relative;
+	display: block;
+	float: left;
+    margin: 8px 0 8px 20px;
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+}
+
+.dotstyle li a {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	outline: none;
+	border-radius: 50%;
+	background-color: #fff;
+	background-color: rgba(255,255,255,0.3);
+	text-indent: -999em;
+	cursor: pointer; /* make the text accessible to screen readers */
+	position: absolute;
+}
+
+/* Fill up */
+.dotstyle-fillup li a {
+	overflow: hidden;
+	background-color: rgba(0,0,0,0);
+	box-shadow: inset 0 0 0 2px rgba(255,255,255,1);
+	transition: background 0.3s;
+}
+
+.dotstyle-fillup li a::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	height: 0;
+	left: 0;
+	width: 100%;
+	background-color: #fff;
+	box-shadow: 0 0 1px #fff;
+	transition: height 0.3s;
+}
+
+.dotstyle-fillup li a:hover,
+.dotstyle-fillup li a:focus {
+	background-color: rgba(0,0,0,0.2);
+}
+
+.dotstyle-fillup li.current a::after {
+	height: 100%;
 }
 
 

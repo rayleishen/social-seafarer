@@ -4,15 +4,17 @@
 
 <link rel="stylesheet" href="assets/main.css">
 <!-- Load icon library -->
-
 <title>Social Seafarer</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
 </head>
 <body class="page">
 
     
 <!-- top menu text -->
-
-<ul class = "nav">
+<div class="section" id="home" data-label="Home">
+<ul class = "nav-bar">
     <h3>
         <li> <a href="#"> Contact </a></li>
         <li> About </li>
@@ -22,9 +24,6 @@
 
 
 <!--title text-->
-
-
-
 <div class = "flex-container">
     
     <ul class = "container-title"> <img src="images/SSCompassLogo.png" alt="Logo"></ul>
@@ -33,7 +32,6 @@
         <article>
 
         <script src="assets/database.js" type="module"></script>
-
         <h1>Social Seafarer</h1>
         <div class = "content">
             <h2>Its easy to get lost in the vastness of the internet. <br> Measure your social impact.</h2>
@@ -52,21 +50,19 @@
                     <i class="fa-solid fa-magnifying-glass"></i> <!-- does not work -->
                     <button id="submit" class="button" onclick="SubmitData();"> <span class="fa-solid fa-user"> Go </span> </button>
                         
-                    <!-- raymond, link your java here -->
-                    <!-- <script src="./name.js"></script> -->
+
 
                 </div>
             </div>
         </div>
     </div>
 </div>
+</section>
 </article>
-            
-    <div class="page-break"></div>
+</div>        
 
-        
+ <div class="section hitbox" id="about" data-label="About Us">
     <!-- second "page"-->
-
     <div class="container-title2">
     <h2> It's as simple as a... 
     <br>
@@ -81,28 +77,79 @@
             </div>
 
 
-            <div class="flex-container container-images">
+            <div class="container-images">
             <ul class="ul1 container-text">
             <img src="Images/Frame 5.png" alt="Logo">  
-            <h2> Webscrape/api</h2>
+            <h2> Webscrape/API</h2>
             <h4> We analyze and begin indexing all the comments from your selected post.</h4></ul>
 
-            <ul class="container-text">
+            <img src="Images/arrow.png" alt="Logo">
+
+            <ul class="ul1 container-text">
             <img src="Images/Frame 4.png" alt="Logo">  
             <h2>Sentiment Analysis</h2>
             <h4>VADER begins to  deductive reasoning to analyze text</h4></ul>
 
-            <ul class="container-text">
+            <img src="Images/arrow.png" alt="Logo">  
+
+            <ul class="ul1 container-text">
             <img src="Images/Frame 2.png" alt="Logo">  
-            <h2> Keyword scan</h2>
+            <h2> Keyword search</h2>
             <h4> What do this what</h4></ul>
 
             </ul>
     </div>
+</div>
 
+
+    <!-- second "page"-->
+    <div class="section hitbox" id="contact" data-label="Get In Touch"></div>
+
+<!-- Scripts -->
+<script>
+    function activateNavigation() {
+      const sections = document.querySelectorAll(".section");
+      const navContainer = document.createElement("nav");
+      const navItems = Array.from(sections).map((section) => {
+        return `
+                        <div class="nav-item" data-for-section="${section.id}">
+                            <a href="#${section.id}" class="nav-link"></a>
+                            <span class="nav-label">${section.dataset.label}</span>
+                        </div>
+                    `;
+      });
     
+      navContainer.classList.add("nav");
+      navContainer.innerHTML = navItems.join("");
+    
+      const observer = new IntersectionObserver(
+        (entries) => {
+          document.querySelectorAll(".nav-link").forEach((navLink) => {
+            navLink.classList.remove("nav-link-selected");
+          });
+    
+          const visibleSection = entries.filter((entry) => entry.isIntersecting)[0];
+    
+          document
+            .querySelector(
+              `.nav-item[data-for-section="${visibleSection.target.id}"] .nav-link`
+            )
+            .classList.add("nav-link-selected");
+        },
+        { threshold: 0.5 }
+      );
+    
+      sections.forEach((section) => observer.observe(section));
+    
+      document.body.appendChild(navContainer);
+    }
+    
+    activateNavigation();
+    
+    
+    </script>
 
-
+</body>
 
 
 </body>
