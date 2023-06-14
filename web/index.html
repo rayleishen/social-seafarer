@@ -30,7 +30,6 @@
     <ul class = "container-title"> <img src="images/SSCompassLogo.png" alt="Logo"></ul>
     <div class = "container">
 
-        <script src="assets/database.js" type="module"></script>
         <h1>Social Seafarer</h1>
         <div class = "content">
             <h2>Its easy to get lost in the vastness of the internet. <br> Measure your social impact.</h2>
@@ -163,7 +162,37 @@
     
     </script>
 
-</body>
+
+
+<script scr="https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js"></script> <!-- initializeApp -->
+<script scr="https://www.gstatic.com/firebasejs/9.22.2/firebase-analytics.js"></script> <!-- getAnalytics -->
+<script scr="https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js"></script> <!-- getDatabase, ref, get, set, child, update, remove -->
+
+
+<script>
+    var config = require("assets/config.json");
+
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: config.apiKey,
+        authDomain: config.authDomain,
+        databaseURL: config.databaseURL,
+        projectId: config.projectId,
+        storageBucket: config.storageBucket,
+        messagingSenderId: config.messagingSenderId,
+        appId: config.appId,
+        measurementId: config.measurementId
+    };
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+
+</script>
+
+<script src="/assets/database.js"></script>
+
 
 
 </body>
