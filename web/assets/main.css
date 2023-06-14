@@ -40,12 +40,11 @@ h4 {
 
 
 .container-title {
-    margin-top: 3%;
+    margin-top: 1%;
 }
 
 .container-title2{
     margin-left: 8%;
-    margin-top: 30%;
 }
 
 .container{
@@ -164,13 +163,20 @@ ul {
 img {
     width:  223px;
     height: 223px;
-    object-fit: cover;
+    object-fit: none;
 }
+
+
 
 .wrapper {
     margin-left:auto;
     margin-right:auto
 }
+
+.section {
+    height: 100vh;
+  }
+
 
 
 
