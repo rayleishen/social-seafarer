@@ -123,6 +123,19 @@ margin-top: 0;
   }
 
 
+/* not related to the rest of the navs */
+
+.nav-top li{
+    display:inline;
+    margin: 3%;
+    right: 0px;
+}
+
+.nav-top {
+    text-align: right;
+}
+
+
 /* lets me see the hitbox, and size of text */
 .hitbox {
     border: 1px solid white;
@@ -193,9 +206,10 @@ ul {
 }
 
 
-.page-break{
-    margin: 15%;
+/*.section{
+    height: 50%;
 }
+*/
 
 .sectionLinks li {
     list-style-type: none;

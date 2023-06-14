@@ -14,12 +14,12 @@
     
 <!-- top menu text -->
 <div class="section" id="home" data-label="Home">
-<ul class = "nav-bar">
-    <h3>
+<ul class = "nav-top">
+    <h2>
         <li> <a href="#"> Contact </a></li>
         <li> About </li>
         <li> Pricing </li>
-    </h3>
+    </h2>
 </ul>
 
 
@@ -27,9 +27,7 @@
 <div class = "flex-container">
     
     <ul class = "container-title"> <img src="images/SSCompassLogo.png" alt="Logo"></ul>
-
     <div class = "container">
-        <article>
 
         <script src="assets/database.js" type="module"></script>
         <h1>Social Seafarer</h1>
@@ -49,22 +47,18 @@
                     <input id="enterURL" class="searchbar" onkeyup="java()" type="text" name="search" placeholder="Paste link...">
                     <i class="fa-solid fa-magnifying-glass"></i> <!-- does not work -->
                     <button id="submit" class="button" onclick="SubmitData();"> <span class="fa-solid fa-user"> Go </span> </button>
-                        
-
-
                 </div>
             </div>
         </div>
     </div>
 </div>
 </section>
-</article>
 </div> 
-</div>       
+</div>  
+<div class="container-title2">     
 
- <div class="section hitbox" id="about" data-label="About Us">
+ <div class="section" id="about" data-label="About Us">
     <!-- second "page"-->
-    <div class="container-title2">
     <h2> It's as simple as a... 
     <br>
     </h2>
@@ -103,10 +97,10 @@
 </div>
 
 
-    <!-- second "page"-->
+    <!-- second "page"
     <div class="section hitbox" id="contact" data-label="Get In Touch"></div>
 
-<!-- Scripts -->
+ Scripts -->
 <script>
     function activateNavigation() {
       const sections = document.querySelectorAll(".section");
