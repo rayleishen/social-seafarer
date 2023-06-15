@@ -20,7 +20,7 @@ import re
 
 
 
-def keywords(site, sens_rating):
+def keywords(site, sens_rake):
     # Read the CSV file into a pandas DataFrame
     if site == "reddit":      
         df = pd.read_csv('csv/reddit_comments.csv')
@@ -43,7 +43,7 @@ def keywords(site, sens_rating):
     keywords_file = open("dynamic_products/keywords.txt", "w")    
         
     for rating, keyword in r.get_ranked_phrases_with_scores():
-        if rating > sens_rating:
+        if rating > sens_rake:
             #print(rating, keyword)
             keywords_file.write(str(rating) + " " + keyword + "\n")
             
