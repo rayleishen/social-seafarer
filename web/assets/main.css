@@ -165,7 +165,6 @@ margin-top: 0;
 
 /* formatting things */
 
-
 ul {
     list-style-type: none;
 }
@@ -197,6 +196,11 @@ ul {
     width: 40%;
 }
 
+.flush-left { /* positions absolute left */
+    left:0px;
+    position: relative;
+}
+
 
 /* Style inputs with type="text", select elements and textareas */
 input[type=text], select, textarea {
@@ -211,19 +215,25 @@ input[type=text], select, textarea {
     resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
   }
   
-  /* Style the submit button with a specific background color etc */
+  /* Button */
   input[type=submit] {
-    background-color: #04AA6D;
+    font-family:"Comfortaa";
+    background-color: #023B53;
     color: white;
-    padding: 12px 20px;
     border: none;
-    border-radius: 4px;
+    padding: 12px;
+    border-radius: 15px; 
+    margin-bottom: 5%; 
     cursor: pointer;
+    transition: all 0.3s ease-in-out; /* animation stuff dw abt it */
   }
   
-  /* When moving the mouse over the submit button, add a darker green color */
+  /* Hover button */
   input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #075175;
+    color: #A7A7A7;
+    border:10px;
+    transform: scale(1.1);
   }
   
 
@@ -243,18 +253,6 @@ input[type=text], select, textarea {
     width: 270px;
     background-color:#A7A7A7;
  
-}
-
-.button {
-    border-radius: 25px;
-    background: #062D40;
-    border: none;
-    color: white;
-    width: 100px;
-    height: 28px; 
-    margin-left: 3%;
-    padding-right: 7%;
-    
 }
 
 .icon {
