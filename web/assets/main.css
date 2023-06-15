@@ -194,7 +194,38 @@ ul {
 
 .contact {
     margin-top: 5%;
+    width: 40%;
 }
+
+
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+    font-family:"Comfortaa";
+    width: 80%; /* Full width */
+    display:block;
+    border: none;
+    padding: 12px; /* Some padding */ 
+    border-radius: 15px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place *//* Add a top margin */
+    margin-bottom: 5%; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  }
+  
+  /* Style the submit button with a specific background color etc */
+  input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* When moving the mouse over the submit button, add a darker green color */
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
 
 
 

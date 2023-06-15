@@ -41,11 +41,15 @@
                     <div class="square"></div>
                 </div>
                  
-                <div class = "container">
+                <div class = "container flex-container">
 
                     <!--search bar-->
                     
+<<<<<<< Updated upstream
                     <input id="url" class="searchbar" onkeyup="java()" type="text" name="search" placeholder="Paste link...">
+=======
+                    <input id="enterURL" onkeyup="java()" type="text" name="search" placeholder="Paste link...">
+>>>>>>> Stashed changes
                     <i class="fa-solid fa-magnifying-glass"></i> <!-- does not work -->
                     <button id="submit" class="button"> <span class="fa-solid fa-user"> Go </span> </button>
                 </div>
@@ -105,8 +109,10 @@
     <!-- second "page" -->
     <div class="section" id="contact" data-label="Get In Touch">
         <!-- second "page"-->
-        <div class="container-title2"> 
-            <h2> We'd love to connect <br> </h2>
+     <br>
+     <br>
+     <div class="container-title2"> 
+            <h2> We would love to connect. <br> </h2>
             <h1> Contact us</h1>
         
 
@@ -117,11 +123,26 @@
 
             <!-- input box -->
             <div class ="contact">
-            <input id="enterURL" class="searchbar" onkeyup="java()" type="text" name="search" placeholder="Paste link...">
+            <form action="action_page.php">
+
+                <!-- <label for="fname">First Name</label> -->
+                <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+                <!-- <label for="lname">Last Name</label> -->
+                <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+                <!-- <label for="subject">Subject</label> -->
+                <textarea id="subject" name="subject" placeholder="Subject..." style="height:200px"></textarea>
+
+                <input type="submit" value="Submit">
+            </form>
+        
             </div>
 
 
+
         </div>   
+        <h4>@2023 Social Seafarer</h4>
 </div>
 
 <!-- scripts -->
