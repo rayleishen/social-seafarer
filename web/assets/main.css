@@ -257,19 +257,6 @@ input[type=text], select, textarea {
     
 }
 
-.searchbar {
-    border-radius: 25px;
-    background: white;
-    border: none;
-    color: black;
-    width: 200px;
-    height: 25px; 
-    text-align: left;
-    margin: auto;
-    padding-left: 2%;
-    
-}
-
 .icon {
     margin-right: 100px;
 }
