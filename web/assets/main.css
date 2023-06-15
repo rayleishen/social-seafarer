@@ -4,11 +4,19 @@
 @import url(fontawesome-all.min.css);
 
 body {
-    background: linear-gradient(#0A7386, #0A7386, #062D40)
+    background-image: url(images/SSCompassLogo.png), linear-gradient(#0A7386, #0A7386, #062D40);
+    background-position: right bottom;
+    background-repeat: no-repeat;
     /*background: linear-gradient(#0A7386, #09697C, #062D40)*/
 
     /*background-image: linear-gradient(#0A7386,#09697C #062D40);*/
   }
+
+
+/* all colors appear as what they were set to. EG hyperlinks wont change text color */
+a { 
+color: inherit; 
+} 
 
 h1 {
     color:white;
@@ -36,6 +44,13 @@ h4 {
     font-family: 'Comfortaa';
     font-size: 10px;
     font-weight: normal;
+}
+
+h5 {
+    color:white;
+    font-family: 'Geologica';
+    font-size: 20px;
+    font-weight: bold;
 }
 
 
@@ -160,7 +175,7 @@ ul {
     list-style-type: none;
 }
 
-img {
+.img-container{
     width:  223px;
     height: 223px;
     object-fit: none;
@@ -177,6 +192,9 @@ img {
     height: 100vh;
   }
 
+.contact {
+    margin-top: 5%;
+}
 
 
 
