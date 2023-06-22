@@ -18,9 +18,9 @@
 <div class="section" id="home" data-label="Home">
     <br><ul class = "nav-top">
     <h2>
-        <li> <a href="Get In Touch"> Contact </a></li>
-        <li> About </li>
-        <li> Pricing </li>
+        <li><span><a href="team.html"> Meet the team </a></span></li>
+        <li><span><a href="team.html"> Roadmap </a></span></li>
+        <li><span><a href="team.html"> Pricing </a></span></li>
     </h2>
 </ul>
 
@@ -29,7 +29,7 @@
 <div class = "flex-container">
     
     <ul class = "container-title"> <img src="assets/css/images/SSCompassLogo.png" alt="Logo"></ul>
-    <div class = "container">
+    <div style="width:70%" class = "container">
 
         <h1>Social Seafarer</h1>
         <div class = "content">
@@ -46,9 +46,18 @@
                     <!--search bar-->
                     
 
-                    <input id="url" style="width: 60%" onkeyup="java()" type="text" name="search" placeholder="Paste link...">
-                    <i class="fa-solid fa-magnifying-glass"></i> <!-- does not work -->
+                    <input id="url" style="width: 60%" onkeyup="java()" type="text" name="search" class="p1" placeholder="Paste link...">
                     <input type="submit" id="submit" style="margin-left: 3%" value="Go >>">
+                        <div class="dropdown">
+                            <button onclick="myFunction()"
+                            class="dropbtn">Configurations</button>
+                            <div id="myDropdown" class="dropdown-content">
+                                <input type="text" placeholder="Comments to sort:">
+                                <input type="text" placeholder="Sentiment Sensitivity">
+
+                            </div>
+
+                        </div>
                     <!-- Pretty sure we can take this out <button id="submit"> <span class="fa-solid fa-user"> Go </span> </button> -->
                 </div>
             </div>
@@ -92,7 +101,7 @@
             </ul>
 
 
-            <ul class="ul1 container-text">
+            <ul class="container-text ul1">
             <img src="assets/css/images/lighthouse.png" alt="Logo">  
             <h5> Keyword search</h5>
             <h4> Identify keywords depending on the frequency of their appearance.</h4>
@@ -105,7 +114,7 @@
 
 
     <!-- second "page" -->
-    <div class="section" id="pagethree" data-label="Get In Touch">
+    <div class="section" id="pagethree" data-label="Contact us">
         <!-- second "page"-->
      <br>
      <br>
@@ -124,7 +133,7 @@
             <form action="https://formsubmit.co/caleb05w@gmail.com" method="POST">
 
                 <!-- <label for="fname">First Name</label> -->
-                <input type="email" name="firstname" placeholder="email address">
+                <!--<input type="email" name="firstname" placeholder="email address">-->
 
                 <input type="text" name="firstname" placeholder="email address">
 
@@ -260,6 +269,31 @@
     }
     
     activateNavigation();
+
+
+
+
+        /* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+/* Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}*/
+
+
     
     
     </script>
