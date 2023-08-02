@@ -4,10 +4,14 @@
 
 body {
     /*background-image: url(images/bg.png);*/
-    background-image: linear-gradient(#0A7386, #09697C, #062D40);
+    background-image: linear-gradient(#0A7386, #09697C, #062D40); 
     background-repeat: no-repeat;
 
     /*background-image: linear-gradient(#0A7386,#09697C #062D40);*/
+    
+    /* removes margins and padding from body and all elements.*/
+    margin:0px; padding:0px;
+
   }
 
 
@@ -16,6 +20,11 @@ body {
 a { 
 color: inherit; 
 } 
+
+move later
+img {
+object-fit: contain;
+}
 
 /* clears all decorations from hyperlink such as underline and color*/
 a:link{
@@ -83,6 +92,26 @@ display: inline-block
     border-radius: 25px;
     padding-left: 20px;
     padding-right: 20px;
+    height: 80%;
+    margin-top:auto;
+    margin-bottom:auto;
+    transition: 0.3s ease-in-out;
+}
+
+.container-circle {
+  width: 200px;
+  height: 200px;
+  margin-top: 10%;
+  border-radius: 50%;
+
+}
+
+.container-text:hover{
+    transform: translate(0, -10px);
+}
+
+.container-images:hover{
+    transform: scale(1.1);
 }
 
 .container-images{
@@ -94,6 +123,7 @@ display: inline-block
     display:flex;
     justify-content: center;
     text-align: center;
+    transition: 0.5s ease-in-out;
 }
 
  .container-item{
@@ -177,7 +207,9 @@ margin-top: 0;
 
 /* lets me see the hitbox, and size of text */
 .hitbox {
-    border: 1px solid white;
+  color: white;
+  border: 5px;
+  border-style: solid;
 }
 
 
@@ -237,15 +269,22 @@ ul {
 /* Style inputs with type="text", select elements and textareas */
 input[type=text], select, textarea {
     font-family:"Comfortaa";
-    MAX-width: 100%; /* Full width */
+    width:100%;
     display: block;
     border: none;
+    transition: left 0.3s ease-in-out;
     padding: 12px; /* Some padding */ 
     border-radius: 15px; /* Rounded borders */
     box-sizing: border-box; /* Make sure that padding and width stays in place *//* Add a top margin */
     margin-bottom: 5%; /* Bottom margin */
     resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
   }
+
+  /*.search:active+.searchBox; {
+    left: 500px;
+
+  }
+  */
   
   /* Button */
   input[type=submit] {
@@ -275,6 +314,15 @@ input[type=text], select, textarea {
 
 /* elements */
 
+.circle {
+  height:75px;
+  width: 75px;
+  border:2px solid white;
+  border-radius: 50%;
+}
+
+
+
 .square {
     height: 4px;
     width: 486px;
@@ -299,6 +347,7 @@ input[type=text], select, textarea {
 }
 
 /* scroll wheel */
+
 .page {
     overflow: auto;
 }
@@ -315,11 +364,13 @@ input[type=text], select, textarea {
 .banner-2 {
     margin-top: 3%;
     margin-bottom: 3%;
-    height: 40%;
+    height: 50%;
     text-align: center;
     opacity: 80%;
     background: #062D40
 }
+
+why do I need this
 section:contact(2n) {
     background-color: coral;
 }
@@ -337,7 +388,12 @@ section:contact(2n) {
     background-size:     cover;                    
     background-repeat:   no-repeat;
     background-position: center bottom; 
-    padding:0%;
+    overflow:hidden;
+}
+
+#pageRedirect {
+  background-color:#09697C;
+  background-size: cover;
 }
 
 
@@ -460,6 +516,18 @@ span {
     background: transparent;
     width: 100%;
     transition: 0s;
+  }
+
+  /* search config navigation */
+
+  .searchBox {
+    height: 100px;
+    width: 200px;
+    border: solid red 5px;
+    position: relative;
+    left: 1px;
+    transition: left 0.3s ease-in-out;
+  
   }
 
   /* Left nav bar animation */
