@@ -6,8 +6,8 @@ from rake_nltk import Rake
 import nltk
 
 #comments below lines out to save processing power
-nltk.download('punkt')
-nltk.download('stopwords')
+#nltk.download('punkt')
+#nltk.download('stopwords')
 
 import re
 

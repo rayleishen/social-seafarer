@@ -81,6 +81,3 @@ def emailsender(reciever):
     
     TIE_server.quit()
     
-    
-
-emailsender('vaultboy3045@gmail.com')

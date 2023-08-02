@@ -1,4 +1,4 @@
-x = 0
+x = 2
 
 #dbgrab#
 import firebase_admin
@@ -12,21 +12,28 @@ firebase_admin.initialize_app(cred, {
     'databaseURL': "https://social-seafarer-default-rtdb.firebaseio.com"
 })
 
+
 url_ref = db.reference("/requests/" + str(x) + "/url/")
-#print(url_ref.get())
-url = url_ref.get()
-
-
+email_ref = db.reference("/requests/" + str(x) + "/email/")
+key_ref = db.reference("/requests/" + str(x) + "/key/")
 ntc_ref = db.reference("/requests/" + str(x) + "/num_top_comments/")
 sv_ref = db.reference("/requests/" + str(x) + "/sens_vadar/")
 sr_ref = db.reference("/requests/" + str(x) + "/sens_rake/")
 
-#email = db.reference("/requests/" + str(x) + "/email/")
-email = 'vaultboy3045@gmail.com'
 
-num_top_comments = ntc_ref.get()
-sens_vadar = sv_ref.get()
-sens_rake = sr_ref.get()
+url = url_ref.get()
+email = email_ref.get()
+key = key_ref.get()
+num_top_comments = int(ntc_ref.get())
+sens_vadar = int(sv_ref.get())
+sens_rake = int(sr_ref.get())
+
+if num_top_comments == 0:
+    num_top_comments = 99
+if sens_vadar == 0:
+    sens_vadar = 0.2
+if sens_rake == 0:
+    sens_rake = 5
 
 
 #main#
@@ -62,4 +69,4 @@ sentimental_analysis.bar_graph(df)
 
 summarizer.keywords(site, sens_rake)
 
-thesenderofemails(email)
+thesenderofemails.emailsender(email)
