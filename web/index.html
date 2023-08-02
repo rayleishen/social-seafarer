@@ -52,11 +52,12 @@
                             <button onclick="myFunction()"
                             class="dropbtn">Configurations</button>
                             <div id="myDropdown" class="dropdown-content">
-                                <input type="text" placeholder="Comments to sort:">
-                                <input type="text" placeholder="Sentiment Sensitivity">
-                                <input type="text" placeholder="Email">
-                                <input type="text" placeholder="Key">
-
+                                <input id="email" type="text" placeholder="Email">
+                                <input id="key" type="text" placeholder="Key">
+                                <input id="num_top_comments" type="text" placeholder="Comments to sort:">
+                                <input id="sens_vadar" type="text" placeholder="Sentiment Sensitivity">
+                                <input id="sens_rake" type="text" placeholder="Keyword Sensitivity">
+                                
                             </div>
 
                         </div>
@@ -205,18 +206,22 @@
     const db = getDatabase();
 
     var url = document.getElementById("url");
+    var email = document.getElementById("email");
+    var key = document.getElementById("key");
     var submitBtn = document.getElementById("submit");
-    const num_top_comments = 99;
-    const sens_vadar = 0.2;
-    const sens_rake = 5;
+    var num_top_comments = document.getElementById("num_top_comments");
+    var sens_vadar = document.getElementById("sens_vadar");
+    var sens_rake = document.getElementById("sens_rake");
     var reqID = 0;
 
     function InsertData() {
         set(ref(db, "requests/"+ reqID),{
             url: url.value,
-            num_top_comments: num_top_comments,
-            sens_vadar: sens_vadar,
-            sens_rake: sens_rake
+            email: email.value,
+            key: key.value,
+            num_top_comments: num_top_comments.value,
+            sens_vadar: sens_vadar.value,
+            sens_rake: sens_rake.value
         })
         .then(()=>{
             reqID++;
