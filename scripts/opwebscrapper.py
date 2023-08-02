@@ -36,7 +36,7 @@ def grab_reddit(url):
         "num_comments": submission.num_comments
     }
 
-    post_dump = json.dumps(post_data)
+    #post_dump = json.dumps(post_data)
 
     with open(os.getcwd() + '/csv/post.json', 'w') as f:
         json.dump(post_data, f)
