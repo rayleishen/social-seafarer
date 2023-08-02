@@ -1,4 +1,6 @@
 const url = document.getElementById("url");
+const email = document.getElementById("email");
+const key = document.getElementById("key");
 const submitBtn = document.getElementById("submit");
 const num_top_comments = 99;
 const sens_vadar = 0.2;
@@ -12,6 +14,7 @@ addBtn.addEventListener('click', (e) => {
     e.preventDefault();
     rootRef.child(reqID.value).set({
         url: url.value,
+        email: email.value,
         num_top_comments: num_top_comments,
         sens_vadar: sens_vadar,
         sens_rake: sens_rake
