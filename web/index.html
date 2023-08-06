@@ -225,26 +225,29 @@
     
     const db = getDatabase();
 
+    
     var url = document.getElementById("url");
     var email = document.getElementById("email");
-    var key = document.getElementById("key");
+    var key = document.getElementById("key"); 
     var submitBtn = document.getElementById("submit");
     var num_top_comments = document.getElementById("num_top_comments");
     var sens_vadar = document.getElementById("sens_vadar");
     var sens_rake = document.getElementById("sens_rake");
-    var reqID = 0;
+    //var reqID = 0;
+
 
     function InsertData() {
-        set(ref(db, "requests/"+ reqID),{
+        var reqID = parseInt(key.value); //key is now reqID for MVP!!!
+        set(ref(db, 'requests/'+ reqID),{
             url: url.value,
             email: email.value,
-            key: key.value,
+            //key: key.value,
             num_top_comments: num_top_comments.value,
             sens_vadar: sens_vadar.value,
             sens_rake: sens_rake.value
         })
         .then(()=>{
-            reqID++;
+            //reqID++;
             alert("Data added successfully");
         })
         .catch((error)=>{

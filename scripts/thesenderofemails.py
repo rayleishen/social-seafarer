@@ -21,15 +21,42 @@ def emailsender(reciever):
     password = data['gmail_pass']
 
     #reciever = 'vaultboy3045@gmail.com'
+    
+    with open('json/post.json') as p:
+        post = json.load(p)
+        
+        ptitle = post["title"]
+        score = post["score"]
+        upvote_ratio = post["upvote_ratio"]
+        created_utc = post["created_utc"]
+        num_comments = post["num_comments"]
+         
+        p.close()
+    
+    with open('json/request.json') as r:
+        request = json.load(r)
+        
+        num_top_comments = request["num_top_comments"]
+        sens_vadar = request["sens_vadar"]
+        sens_rake = request["sens_rake"]
+        
+        r.close()
+    
+    
+        
 
-    subject = "test"
+    subject = "[BETA] Social Seafarer Sentiment Analysis"
     body = """
-    asdasd
-    asdasdsa
-    asdasdasds
-    asdasdasdada
-    asdasdasdasdasd
-    """
+    Sentiment analysis of reddit post "{}" with VADAR (Valence Aware Dictionary and sEntiment Reasoner) and 
+RAKE-nltk (Rapid Automatic Keyword Extraction algorithm). The post has a total of {} upvotes with an 
+upvote ratio of {}. Uploaded to reddit at {} utc with a total of {} parent comments. 
+
+Attached are a pie chart and bar graph representing the ratio of positive, negative and neutral comments 
+with VADAR sensitivity set at {}. There is also a list of key phrases sorted with descending relevance 
+with RAKE sensitivity set at {}.
+
+Feedback appreciated at contact@socialseafarer.com
+    """.format(ptitle, score, upvote_ratio, created_utc, num_comments, sens_vadar, sens_rake)
 
     em = MIMEMultipart()
     em["From"] = sender
