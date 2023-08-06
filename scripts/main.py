@@ -1,5 +1,6 @@
 x = 374188
 from time import sleep
+import json, os
 
 #dbgrab#
 import firebase_admin
@@ -29,13 +30,23 @@ def main():
     sens_vadar = int(sv_ref.get())
     sens_rake = int(sr_ref.get())
 
-    if num_top_comments == 0:
+    if num_top_comments == "0":
         num_top_comments = 99
-    if sens_vadar == 0:
+    if sens_vadar == "0":
         sens_vadar = 0.2
-    if sens_rake == 0:
+    if sens_rake == "0":
         sens_rake = 5
 
+    request_data = {
+        "url": url,
+        "email": email,
+        "num_top_comments": num_top_comments,
+        "sens_vadar": sens_vadar,
+        "sens_rake": sens_rake,
+    }
+
+    with open(os.getcwd() + '/json/post.json', 'w') as f:
+        json.dump(request_data, f)
 
     #main#
     import opwebscrapper, sentimental_analysis, summarizer, thesenderofemails
@@ -76,10 +87,16 @@ def main():
 old = 0 
 
 while True:
-    new = db.reference("/requests/" + str(x) + "/url/")
+    url_ref = db.reference("/requests/" + str(x) + "/url/")
+    new = url_ref.get()
     sleep(2.0)
     
-    if new != old:
-        main()
+    print(".")
+    
+    if new == old:
+        continue
+    else:
+        print("new request")
         old = new
+        main()
     

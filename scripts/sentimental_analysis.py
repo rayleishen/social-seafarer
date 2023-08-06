@@ -83,6 +83,17 @@ def run(site, num_top_comments, sens):
 
 ################################################################
 
+def pie_chart(df):   
+    data = df.label.value_counts(normalize=True) * 100
+    labels = ['Neutral', 'Negative', 'Positive']
+
+    colors = sns.color_palette('pastel')[0:5]
+
+    #create pie chart
+    plt.pie(data, labels = labels, colors = colors, autopct='%.0f%%')
+    
+    plt.savefig('dynamic_products/pie_chart.png')
+
 
 def bar_graph(df):
     fig, ax = plt.subplots(figsize=(8, 8))
@@ -100,14 +111,3 @@ def bar_graph(df):
     
     plt.savefig('dynamic_products/bar_graph.png')
 
-
-def pie_chart(df):   
-    data = df.label.value_counts(normalize=True) * 100
-    labels = ['Neutral', 'Negative', 'Positive']
-
-    colors = sns.color_palette('pastel')[0:5]
-
-    #create pie chart
-    plt.pie(data, labels = labels, colors = colors, autopct='%.0f%%')
-    
-    plt.savefig('dynamic_products/pie_chart.png')

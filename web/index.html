@@ -205,17 +205,20 @@
     
     const db = getDatabase();
 
+    
     var url = document.getElementById("url");
     var email = document.getElementById("email");
-    var reqID = document.getElementById("key"); //key is request id for now!!!
+    var key = document.getElementById("key"); 
     var submitBtn = document.getElementById("submit");
     var num_top_comments = document.getElementById("num_top_comments");
     var sens_vadar = document.getElementById("sens_vadar");
     var sens_rake = document.getElementById("sens_rake");
     //var reqID = 0;
 
+
     function InsertData() {
-        set(ref(db, "requests/"+ reqID),{
+        var reqID = parseInt(key.value); //key is now reqID for MVP!!!
+        set(ref(db, 'requests/'+ reqID),{
             url: url.value,
             email: email.value,
             //key: key.value,

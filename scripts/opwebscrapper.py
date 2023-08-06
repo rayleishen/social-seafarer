@@ -6,7 +6,7 @@ from praw.models import MoreComments
 
 import os
 
-with open(os.getcwd() + '/config.json') as config_file:
+with open(os.getcwd() + 'json/config.json') as config_file:
     data = json.load(config_file)
 
 c_id = data['client_id']
@@ -38,7 +38,7 @@ def grab_reddit(url):
 
     #post_dump = json.dumps(post_data)
 
-    with open(os.getcwd() + '/csv/post.json', 'w') as f:
+    with open(os.getcwd() + '/json/post.json', 'w') as f:
         json.dump(post_data, f)
 
 
