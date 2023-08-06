@@ -381,6 +381,74 @@ section:contact(2n) {
     background-color: coral;
 }
 
+/* side nav */
+
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  right: 0;
+  background-color: #062D40; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  font-family: 'Comfortaa';
+  margin: 10%;
+  color: white;
+  font-size: 20px;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav input[type=number], select, textarea {
+    font-family:"Comfortaa";
+    width:80%;
+    margin-right: 10%;
+    margin-left:10%;
+    margin-top: 5%;
+    display: block;
+    border: none;
+    transition: left 0.3s ease-in-out;
+    padding: 12px; /* Some padding */ 
+    border-radius: 15px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place *//* Add a top margin */
+    margin-bottom: 5%; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  }
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+////
 
 #pagethree{ /*background lighthouse for third segment*/
     background-image: url(images/bg.png);
@@ -403,7 +471,7 @@ section:contact(2n) {
 }
 
 
-/* drop down menu */
+/* drop down menu 
 .dropbtn {
     font-family:"Comfortaa";
     font-size: 15px;
@@ -415,7 +483,7 @@ section:contact(2n) {
     border-radius: 15px; 
     margin-bottom: 5%; 
     cursor: pointer;
-    transition: all 0.3s ease-in-out; /* animation stuff dw abt it */
+    transition: all 0.3s ease-in-out; /* animation stuff dw abt it 
 
   }
   
@@ -454,6 +522,7 @@ section:contact(2n) {
   
   .show {display: block;}
 
+*/
 
 
 .sectionLinks li {

@@ -3,6 +3,7 @@
 <head>
 
 <link rel="stylesheet" href="assets/css/main.css">
+<link rel="icon" type="image" href="assets/css/images/favicon.ico">
 <script src="https://kit.fontawesome.com/3d577348db.js" crossorigin="anonymous"></script>
 <!-- Load icon library -->
 <title>Social Seafarer</title>
@@ -41,14 +42,30 @@
                     <div class="square"></div>
                 </div>
                  
-                <div class = "container flex-container">
+                <div class = "container flex-container hitbox">
 
                     <!--search bar-->
                     
 
                     <input id="url" style="width: 60%" onkeyup="java()" type="text" name="search" class="p1" placeholder="Paste link...">
                     <input type="submit" id="submit" style="margin-left: 3%" value="Go >>">
-                        <div class="dropdown">
+                    <div id="mySidenav" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <input id="email" type="text" placeholder="Email">
+                        <input id="key" type="number" placeholder="Key">
+                        <input id="num_top_comments" type="number" placeholder="Comments to sort:">
+                        <input id="sens_vadar" type="text" placeholder="Sentiment Sensitivity">
+                        <a>optional field</a>
+                        <input id="sens_rake" type="text" placeholder="Keyword Sensitivity">
+                      </div>
+                      
+                      <!-- Use any element to open the sidenav -->
+                      <input type="submit" value="Configurations" onclick="openNav()" style="margin-left:3%">
+
+
+
+                        </div>
+                        <!-- <div class="dropdown">
                             <button onclick="myFunction()"
                             class="dropbtn">Configurations</button>
                             <div id="myDropdown" class="dropdown-content">
@@ -60,7 +77,7 @@
                                 
                             </div>
 
-                        </div>
+                        </div> -->
                     <!-- Pretty sure we can take this out <button id="submit"> <span class="fa-solid fa-user"> Go </span> </button> -->
                 </div>
             </div>
@@ -166,7 +183,10 @@
         </div>
 </div>
 
-<!-- scripts -->
+<!--scripts-->
+<script src="assets/main.js"></script>
+<!-- <script src="libs/database.js"></script> -->
+
 
 <script src="libs/require.js"></script>
 
@@ -235,75 +255,6 @@
     submitBtn.addEventListener('click', InsertData);
 
 </script>
-
-
-<script>
-    function activateNavigation() {
-      const sections = document.querySelectorAll(".section");
-      const navContainer = document.createElement("nav");
-      const navItems = Array.from(sections).map((section) => {
-        return `
-                        <div class="nav-item" data-for-section="${section.id}">
-                            <a href="#${section.id}" class="nav-link"></a>
-                            <span class="nav-label">${section.dataset.label}</span>
-                        </div>
-                    `;
-      });
-    
-      navContainer.classList.add("nav");
-      navContainer.innerHTML = navItems.join("");
-    
-      const observer = new IntersectionObserver(
-        (entries) => {
-          document.querySelectorAll(".nav-link").forEach((navLink) => {
-            navLink.classList.remove("nav-link-selected");
-          });
-    
-          const visibleSection = entries.filter((entry) => entry.isIntersecting)[0];
-    
-          document
-            .querySelector(
-              `.nav-item[data-for-section="${visibleSection.target.id}"] .nav-link`
-            )
-            .classList.add("nav-link-selected");
-        },
-        { threshold: 0.5 }
-      );
-    
-      sections.forEach((section) => observer.observe(section));
-    
-      document.body.appendChild(navContainer);
-    }
-    
-    activateNavigation();
-
-
-
-
-        /* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-/* Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}*/
-
-
-    
-    
-    </script>
 
 </body>
 </html>
