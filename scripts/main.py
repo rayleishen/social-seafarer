@@ -1,6 +1,6 @@
 x = 374188
 from time import sleep
-import json, os
+import json
 
 #dbgrab#
 import firebase_admin
@@ -8,7 +8,7 @@ from firebase_admin import credentials
 from firebase_admin import db
 
 # Fetch the service account key JSON file contents
-cred = credentials.Certificate('firebase-config.json')
+cred = credentials.Certificate('json/firebase_config.json')
 # Initialize the app with a service account, granting admin privileges
 firebase_admin.initialize_app(cred, {
     'databaseURL': "https://social-seafarer-default-rtdb.firebaseio.com"
@@ -45,7 +45,7 @@ def main():
         "sens_rake": sens_rake,
     }
 
-    with open(os.getcwd() + '/json/post.json', 'w') as f:
+    with open('json/request.json', 'w') as f:
         json.dump(request_data, f)
 
     #main#
