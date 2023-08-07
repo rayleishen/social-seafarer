@@ -17,8 +17,12 @@ body {
 
 
 /* all colors appear as what they were set to. EG hyperlinks wont change text color */
-a { 
-color: inherit; 
+p { 
+color: inherit;
+color:white;
+font-family: 'Comfortaa';
+font-size: 15px;
+font-weight: bold;
 } 
 
 move later
@@ -27,8 +31,12 @@ object-fit: contain;
 }
 
 /* clears all decorations from hyperlink such as underline and color*/
+a{
+  color:inherit;
+}
 a:link{
     text-decoration: none;
+    color:inherit;
 }
 
 h1 {
@@ -55,7 +63,7 @@ h3 {
 h4 {
     color:white;
     font-family: 'Comfortaa';
-    font-size: 10px;
+    font-size: 15px;
     font-weight: bold;
 }
 
@@ -66,6 +74,7 @@ h5 {
     font-weight: bold;
     margin-bottom: 10px;
 }
+
 
 .container-centre {
 width:100%;
@@ -222,7 +231,7 @@ li {
   }
 
 li:hover{
-    color: #A7A7A7;
+    color: #fff;
 }
 
 ul {
@@ -287,13 +296,15 @@ input[type=text], select, textarea {
   */
   
   /* Button */
-  input[type=submit] {
+	input[type="submit"],
+	button,
+	.button {
     font-family:"Comfortaa";
     font-size: 15px;
-    background-color: #023B53;
+    background: none;
     color: white;
-    border: none;
-    padding: 20px;
+    border: 3px solid white;
+    padding: 15px;
     border-radius: 15px; 
     margin-bottom: 5%; 
     cursor: pointer;
@@ -301,12 +312,16 @@ input[type=text], select, textarea {
   }
   
   /* Hover button */
-  input[type=submit]:hover {
-    background-color: #075175;
-    color: #A7A7A7;
-    border:10px;
+	input[type="submit"]:hover,
+	button:hover,
+	.button:hover {
+    background-color: #023B53;
+    border: 3px solid #023B53;
+    color: #fff;
     transform: scale(1.1);
   }
+
+
   
 
 
@@ -328,7 +343,6 @@ input[type=text], select, textarea {
 }
 
 
-
 .square {
     height: 4px;
     width: 486px;
@@ -343,7 +357,11 @@ input[type=text], select, textarea {
 }
 
 .icon {
-    margin-right: 100px;
+  margin-right: 100px;
+}
+
+.button.icon{
+  margin-right:100px;
 }
 
 .fa-brands{
@@ -383,6 +401,7 @@ section:contact(2n) {
 
 /* side nav */
 
+
 .sidenav {
   height: 100%; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
@@ -399,14 +418,14 @@ section:contact(2n) {
 /* The navigation menu links */
 .sidenav a {
   font-family: 'Comfortaa';
-  margin: 10%;
   color: white;
-  font-size: 20px;
+  font-size: 10px;
   display: block;
+  margin-left:10%;
   transition: 0.3s;
 }
 
-.sidenav input[type=number], select, textarea {
+.sidenav input, select {
     font-family:"Comfortaa";
     width:80%;
     margin-right: 10%;
@@ -424,7 +443,7 @@ section:contact(2n) {
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: #f1f1f1;
+  color: #A7A7A7;
 }
 
 /* Position and style the close button (top right corner) */
@@ -439,7 +458,6 @@ section:contact(2n) {
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
   transition: margin-left .5s;
-  padding: 20px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -447,8 +465,6 @@ section:contact(2n) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-
-////
 
 #pagethree{ /*background lighthouse for third segment*/
     background-image: url(images/bg.png);
@@ -468,6 +484,11 @@ section:contact(2n) {
 #pageRedirect {
   background-color:#09697C;
   background-size: cover;
+}
+
+#pageRoadmap{
+  background-size: cover;
+  background-color:#09697C;
 }
 
 
@@ -552,6 +573,12 @@ section:contact(2n) {
 }
 
 /* animatation */
+#main {
+  transition: 0.5s;
+  margin:0%;
+}
+
+
 html {
     scroll-behavior: smooth;
   }
@@ -582,7 +609,7 @@ span {
   }
   
   span:hover:before {
-    background: #A7A7A7;
+    background: #fff;
     width: 100%;
     transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
   }

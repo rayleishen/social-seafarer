@@ -16,12 +16,29 @@
 <body class="page">
     
 <!-- top menu text -->
+
+
+
+<!-- side bar dropdown-->
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a>Required fields*</a>
+    <input id="email" type="text" placeholder="Email">
+    <input id="key" type="number" placeholder="Key">
+    <a>Optional fields*</a>
+    <input id="num_top_comments" type="number" placeholder="Comments to sort:">
+    <input id="sens_vadar" type="text" placeholder="Sentiment Sensitivity">
+    <input id="sens_rake" type="text" placeholder="Keyword Sensitivity">
+  </div>
+
+<div id="main">
+    
 <div class="section" id="home" data-label="Home">
     <br><ul class = "nav-top">
     <h2>
         <li><span><a href="team.html"> Meet the team </a></span></li>
-        <li><span><a href="team.html"> Roadmap </a></span></li>
-        <li><span><a href="Redirect.html"> Pricing </a></span></li>
+        <li><span><a href="roadmap.html"> Roadmap </a></span></li>
+        <li><span><a href="redirect.html"> Pricing </a></span></li>
     </h2>
 </ul>
 
@@ -42,25 +59,17 @@
                     <div class="square"></div>
                 </div>
                  
-                <div class = "container flex-container hitbox">
+                <div class = "container flex-container">
 
                     <!--search bar-->
-                    
 
-                    <input id="url" style="width: 60%" onkeyup="java()" type="text" name="search" class="p1" placeholder="Paste link...">
+                    <input id="input" style="width: 60%" onkeyup="java()" type="text" name="search" class="p1" placeholder="Paste link...">
                     <input type="submit" id="submit" style="margin-left: 3%" value="Go >>">
-                    <div id="mySidenav" class="sidenav">
-                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                        <input id="email" type="text" placeholder="Email">
-                        <input id="key" type="number" placeholder="Key">
-                        <input id="num_top_comments" type="number" placeholder="Comments to sort:">
-                        <input id="sens_vadar" type="text" placeholder="Sentiment Sensitivity">
-                        <a>optional field</a>
-                        <input id="sens_rake" type="text" placeholder="Keyword Sensitivity">
-                      </div>
+
                       
-                      <!-- Use any element to open the sidenav -->
-                      <input type="submit" value="Configurations" onclick="openNav()" style="margin-left:3%">
+                      <!-- open sidenav -->
+                        <button onclick="openNav()" style="margin-left:3%;"> <i class="fa-solid fa-gear"></i> Configurations</button>
+                      
 
 
 
@@ -109,7 +118,7 @@
             <ul class="ul1 container-text"style="background:none">
             <img src="assets/css/images/map.png" alt="Logo">  
             <h5> Webscrape/API</h5>
-            <h4> We analyze and begin indexing all the comments from your selected post.</h4></ul>
+            <h3> We analyze and begin indexing all the comments from your selected post.</h3></ul>
             </ul>
 
            <!-- <img src="Images/arrow.png" alt="Logo"> -->
@@ -117,14 +126,14 @@
             <ul class="ul1 container-text"style="background:none">
             <img src="assets/css/images/compass.png" alt="Logo">  
             <h5>Sentiment Analysis</h5>
-            <h4>Python program VADAR employs deductive reasoning to analyze text.</h4></ul>
+            <h3>Python program VADAR employs deductive reasoning to analyze text.</h3></ul>
             </ul>
 
 
             <ul class="container-text ul1"style="background:none">
             <img src="assets/css/images/lighthouse.png" alt="Logo">  
             <h5> Keyword search</h5>
-            <h4> Identify keywords depending on the frequency of their appearance.</h4>
+            <h3> Identify keywords depending on the frequency of their appearance.</h3>
             </ul>
             </div>
             <div class="container-title2"> </div>
@@ -155,10 +164,10 @@
                 <!-- <label for="fname">First Name</label> -->
                 <!--<input type="email" name="firstname" placeholder="email address">-->
 
-                <input type="text" name="firstname" placeholder="email address">
+                <input id="email" type="text" placeholder="Your email..">
 
                 <!-- <label for="lname">Last Name</label> -->
-                <input type="text" name="name" placeholder="Your name..">
+                <input id="name" type="text" name="name" placeholder="Your name..">
 
                 <!-- <label for="subject">Subject</label> -->
                 <textarea id="subject" name="subject" placeholder="Subject..." style="height:200px"></textarea>
@@ -182,6 +191,8 @@
                 </div>
         </div>
 </div>
+<!-- closing div for main -->
+</div> 
 
 <!--scripts-->
 <script src="assets/main.js"></script>

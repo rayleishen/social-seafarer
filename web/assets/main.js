@@ -65,9 +65,21 @@ function openNav() {
   document.getElementById("main").style.marginRight = "250px";
 }
 
+
+
+
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
   document.getElementById("main").style.marginRight = "0";
 }
-    
+
+
+/* I screwed the toggle script up badly
+const button = document.getElementById("mySidenav"); 
+const buttonPressed = (e) => {
+  e.target.classList.toggle("sidenav");
+  e.target.classList.toggle("shownav");
+}
+button.addEventListener("click", buttonPressed);
+*/
