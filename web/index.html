@@ -63,7 +63,7 @@
 
                     <!--search bar-->
 
-                    <input id="input" style="width: 60%" onkeyup="java()" type="text" name="search" class="p1" placeholder="Paste link...">
+                    <input id="url" style="width: 60%" onkeyup="java()" type="text" name="search" class="p1" placeholder="Paste link...">
                     <input type="submit" id="submit" style="margin-left: 3%" value="Go >>">
 
                       
@@ -146,21 +146,21 @@
 
             <!-- input box -->
             <div class ="contact">
-            <form action="https://formsubmit.co/caleb05w@gmail.com" method="POST">
+            <!-- <form action="https://formsubmit.co/caleb05w@gmail.com" method="POST"> -->
 
                 <!-- <label for="fname">First Name</label> -->
                 <!--<input type="email" name="firstname" placeholder="email address">-->
 
-                <input id="email" type="text" placeholder="Your email..">
+                <input id="contactus_email" type="text" placeholder="Your email..">
 
                 <!-- <label for="lname">Last Name</label> -->
-                <input id="name" type="text" name="name" placeholder="Your name..">
+                <input id="contactus_name" type="text" name="name" placeholder="Your name..">
 
                 <!-- <label for="subject">Subject</label> -->
-                <textarea id="subject" name="subject" placeholder="Subject..." style="height:200px"></textarea>
+                <textarea id="contactus_body" name="subject" placeholder="Subject..." style="height:200px"></textarea>
 
-                <input type="submit" value="Submit">
-            </form>
+                <input id="send" type="submit" value="Send">
+            <!-- </form> -->
         
             </div>
 
@@ -253,7 +253,30 @@
         });
     }
 
+    var emailBtn = document.getElementById("send");
+    var contactus_email = document.getElementById("contactus_email");
+    var contactus_name = document.getElementById("contactus_name");
+    var contactus_body = document.getElementById("contactus_body");
+
+    function SendEmail() {
+        var emailID = 1;
+        set(ref(db, 'emails/'+ emailID),{
+            email: contactus_email.value,
+            name: contactus_name.value,
+            body: contactus_body.value
+        })
+        .then(()=>{
+            //reqID++;
+            alert("Sent successfully");
+        })
+        .catch((error)=>{
+            alert(error);
+        });
+    }
+
     submitBtn.addEventListener('click', InsertData);
+    emailBtn.addEventListener('click', SendEmail);
+
 
 </script>
 
