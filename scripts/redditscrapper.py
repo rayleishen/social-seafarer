@@ -1,8 +1,9 @@
 #https://www.geeksforgeeks.org/scraping-reddit-using-python/
 
 import praw, json
-import pandas as pd
 from praw.models import MoreComments
+
+import pandas as pd
 
 with open('json/config.json') as config_file:
     data = json.load(config_file)
@@ -10,6 +11,8 @@ with open('json/config.json') as config_file:
 c_id = data['client_id']
 c_s = data['client_s']
 u_a = data['user_a']
+
+config_file.close()
 
 # Read-only instance
 reddit_read_only = praw.Reddit(client_id=c_id,         # your client id
@@ -36,8 +39,10 @@ def grab_reddit(url):
 
     #post_dump = json.dumps(post_data)
 
-    with open('json/post.json', 'w') as f:
+    with open('json/reddit_post.json', 'w') as f:
         json.dump(post_data, f)
+        
+    f.close()
 
     post_comments = []
     
@@ -49,9 +54,5 @@ def grab_reddit(url):
     
     # creating a dataframe
     comments = pd.DataFrame(post_comments, columns=['comment'])
-    comments
 
     comments.to_csv("csv/reddit_comments.csv", index=True)
-
-def grab_youtube():
-    print("###")

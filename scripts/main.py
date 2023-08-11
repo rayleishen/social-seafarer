@@ -49,7 +49,7 @@ def main():
         json.dump(request_data, f)
 
     #main#
-    import opwebscrapper, sentimental_analysis, summarizer, thesenderofemails
+    import redditscrapper, sentimental_analysis, summarizer, thesenderofemails
 
     ###variables###
     #url = "https://www.reddit.com/r/technology/comments/1439n76/apples_vision_pro_is_a_3500_ticket_to_nowhere_a/"
@@ -63,11 +63,11 @@ def main():
     #csv of key phrases
 
     if "reddit.com" in url:
-        opwebscrapper.grab_reddit(url)
+        redditscrapper.grab_reddit(url)
         site = "reddit"
         
     elif "youtube.com" in url:
-        opwebscrapper.grab_youtube(url)
+        redditscrapper.grab_youtube(url)
         site = "youtube"
         
     else:
