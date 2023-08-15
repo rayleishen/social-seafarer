@@ -78,18 +78,17 @@ def compile_summary():
     keywords = '\n'.join(data)
     prompt = f'Summarize the general sentiment of the following keywords into one cohesive paragraph:\n{keywords}'
     
-    response = openai.Completion.create(
-        engine='text-davinci-003',
-        prompt=prompt,
+    response = openai.ChatCompletion.create(
+        model='gpt-3.5-turbo',
+        messages = [{"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": prompt}],
+        n=1,
         max_tokens=250  # You can adjust this value to control the length of the summary
     )
-    summary = response.choices[0].text.strip()  # Remove leading/trailing whitespace
-    
-    newline_index = summary.find('\n')
+    generated_texts = [choice.message["content"].strip() for choice in response["choices"]]
 
-    # Extract the portion of text after the newline
-    extracted_text = summary[newline_index + 1:]
-    # print(extracted_text) For debugging purposes
+    summary = generated_texts[0]
+    # print(summary) # For debugging
 
     # Create the folder if it doesn't exist
     folder_path = os.path.dirname(output_file_path)
@@ -98,7 +97,7 @@ def compile_summary():
 
     # Write the summary to the output file
     with open(output_file_path, 'w') as output_file:
-        output_file.write(extracted_text)
+        output_file.write(summary)
 
     print(f"Summary saved to '{output_file_path}'")
 
