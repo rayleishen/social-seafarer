@@ -15,7 +15,27 @@ dev_key = data['youtube_dev']
 
 config_file.close()
 
-def grab_youtube(video_id):
+def grab(video_url):
+
+    """
+    Examples:
+    - http://youtu.be/SA2iWivDJiE
+    - http://www.youtube.com/watch?v=_oPAwA_Udwc&feature=feedu
+    - http://www.youtube.com/embed/SA2iWivDJiE
+    - http://www.youtube.com/v/SA2iWivDJiE?version=3&amp;hl=en_US
+    """
+    query = urllib.parse.urlparse(video_url)
+    if query.hostname == 'youtu.be':
+        video_id = query.path[1:]
+    if query.hostname in ('www.youtube.com', 'youtube.com'):
+        if query.path == '/watch':
+            p = urllib.parse.parse_qs(query.query)
+            video_id = p['v'][0]
+        if query.path[:7] == '/embed/':
+            video_id = query.path.split('/')[2]
+        if query.path[:3] == '/v/':
+            video_id = query.path.split('/')[2]
+    
     # empty list for storing reply
     replies = []
  
@@ -70,19 +90,19 @@ def grab_youtube(video_id):
             replycount = item['snippet']['totalReplyCount']
  
             # if reply is there
-            if replycount>0:
+            #if replycount>0:
                
                 # iterate through all reply
-                for reply in item['replies']['comments']:
+                #for reply in item['replies']['comments']:
                    
                     # Extract reply
-                    reply = reply['snippet']['textDisplay']
+                    #reply = reply['snippet']['textDisplay']
                      
                     # Store reply is list
-                    replies.append(reply)
+                    #replies.append(reply)
  
             # print comment with list of reply
-            print(comment, replies, end = '\n\n')
+            # print(comment, replies, end = '\n\n')
  
             # empty reply list
             replies = []
@@ -101,30 +121,4 @@ def grab_youtube(video_id):
             break
         
         
-
-def video_id(value):
-    """
-    Examples:
-    - http://youtu.be/SA2iWivDJiE
-    - http://www.youtube.com/watch?v=_oPAwA_Udwc&feature=feedu
-    - http://www.youtube.com/embed/SA2iWivDJiE
-    - http://www.youtube.com/v/SA2iWivDJiE?version=3&amp;hl=en_US
-    """
-    query = urllib.parse.urlparse(value)
-    if query.hostname == 'youtu.be':
-        return query.path[1:]
-    if query.hostname in ('www.youtube.com', 'youtube.com'):
-        if query.path == '/watch':
-            p = urllib.parse.parse_qs(query.query)
-            return p['v'][0]
-        if query.path[:7] == '/embed/':
-            return query.path.split('/')[2]
-        if query.path[:3] == '/v/':
-            return query.path.split('/')[2]
-    # fail?
-    return None
- 
-video_url = 'https://www.youtube.com/watch?v=ucRrYRfRkVE'
-
-# Call function
-grab_youtube(video_id(video_url))
+grab('https://youtu.be/UagcwsLlbD0')

@@ -15,6 +15,10 @@ import math
 
 
 def keywords(site, sens_rake):
+    if sens_rake == 0:
+        sens_rake = 5
+
+
     # Read the CSV file into a pandas DataFrame
     if site == "reddit":      
         df = pd.read_csv('csv/reddit_comments.csv')
@@ -103,5 +107,3 @@ def compile_summary():
 
     # Rest of your existing code follows...
 
-# Call the function to compile the summary
-compile_summary()

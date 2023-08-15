@@ -21,7 +21,7 @@ reddit_read_only = praw.Reddit(client_id=c_id,         # your client id
 
 
 #----------------------------------------------------------------------------------------------
-def grab_reddit(url):
+def grab(url):
 
     # URL of the post
     

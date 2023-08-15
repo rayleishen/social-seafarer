@@ -17,8 +17,8 @@ import csv
 import os
 
 #can be changed by user
-num_top_comments=999 #how many of the top comments default=99
-sens=0.2 #how sensative is VADER default=0.2
+#num_top_comments=999 #how many of the top comments default=99
+#sens=0.2 #how sensative is VADER default=0.2
 
 
 #add parameters
@@ -111,3 +111,5 @@ def bar_graph(df):
     
     plt.savefig('dynamic_products/bar_graph.png')
 
+
+run('reddit', 0, 0)

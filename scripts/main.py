@@ -49,7 +49,7 @@ def main():
         json.dump(request_data, f)
 
     #main#
-    import redditscrapper, sentimental_analysis, summarizer, thesenderofemails
+    import redditscrapper, youtubescrapper, twitterscrapper, instagramscrapper, sentimental_analysis, summarizer, emailer
 
     ###variables###
     #url = "https://www.reddit.com/r/technology/comments/1439n76/apples_vision_pro_is_a_3500_ticket_to_nowhere_a/"
@@ -63,16 +63,23 @@ def main():
     #csv of key phrases
 
     if "reddit.com" in url:
-        redditscrapper.grab_reddit(url)
+        redditscrapper.grab(url)
         site = "reddit"
         
     elif "youtube.com" in url:
-        redditscrapper.grab_youtube(url)
+        youtubescrapper.grab(url)
         site = "youtube"
+
+    elif "twitter.com" in url:
+        twitterscrapper.grab(url)
+        site = "twitter"
+
+    elif "instagram.com" in url:
+        instagramscrapper.grab(url)
+        site = "instagram"
         
     else:
-        print("error")
-        
+        print("error, url is not of a supported site")
         
     df = sentimental_analysis.run(site, num_top_comments, sens_vadar)
 
@@ -81,7 +88,7 @@ def main():
 
     summarizer.keywords(site, sens_rake)
 
-    thesenderofemails.emailsender(email)
+    emailer.emailsender(site, email)
     
     
 old = 0 

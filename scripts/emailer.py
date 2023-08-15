@@ -15,7 +15,7 @@ with open('json/config.json') as config_file:
 smtp_port = 587                 # Standard secure SMTP port
 smtp_server = "smtp.gmail.com"  # Google SMTP Server
 
-def emailsender(reciever):
+def emailsender(site, reciever):
 
     sender = 'rayleishen@gmail.com'
     password = data['gmail_pass']
