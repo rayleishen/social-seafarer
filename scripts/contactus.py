@@ -30,36 +30,33 @@ firebase_admin.initialize_app(cred, {
     'databaseURL': "https://social-seafarer-default-rtdb.firebaseio.com"
 })
 
-email_ref = db.reference("/emails/" + str(x) + "/email/")
-name_ref = db.reference("/emails/" + str(x) + "/name/")
-body_ref = db.reference("/emails/" + str(x) + "/body/")
-
-email = int(email_ref.get())
-name = int(name_ref.get())
-body = int(body_ref.get())
-
-
-
 def contactus():
+
+    email_ref = db.reference("/emails/" + str(x) + "/email/")
+    name_ref = db.reference("/emails/" + str(x) + "/name/")
+    bodyy_ref = db.reference("/emails/" + str(x) + "/body/")
+
+    email = str(email_ref.get())
+    name = str(name_ref.get())
+    bodyy = str(bodyy_ref.get())
+
 
     sender = 'rayleishen@gmail.com'
     password = data['gmail_pass']
 
-    reciever = 'caleb05w@gmail.com'
-    
+    reciever = 'socialseafarer@gmail.com'
+    #reciever = 'caleb05w@gmail.com'
+    #reciever = 'rayleishen@gmail.com'
 
-    subject = "[BETA] Social Seafarer Sentiment Analysis"
+    subject = "[!] Social Seafarer Contact Request"
     body = """
-    Sentiment analysis of reddit post "{}" with VADAR (Valence Aware Dictionary and sEntiment Reasoner) and 
-RAKE-nltk (Rapid Automatic Keyword Extraction algorithm). The post has a total of {} upvotes with an 
-upvote ratio of {}. Uploaded to reddit at {} utc with a total of {} parent comments. 
-
-Attached are a pie chart and bar graph representing the ratio of positive, negative and neutral comments 
-with VADAR sensitivity set at {}. There is also a list of key phrases sorted with descending relevance 
-with RAKE sensitivity set at {}.
-
-Feedback appreciated at contact@socialseafarer.com
-    """.format(ptitle, score, upvote_ratio, created_utc, num_comments, sens_vadar, sens_rake)
+    Email request from {} at {}\n
+    Message start:
+    \n
+    {}
+    \n
+    Message end.
+    """.format(name, email, bodyy)
 
     em = MIMEMultipart()
     em["From"] = sender
@@ -67,29 +64,6 @@ Feedback appreciated at contact@socialseafarer.com
     em["Subject"] = subject
     
     em.attach(MIMEText(body, 'plain'))
-
-
-    filename = 'pie_chart.png'
-    attachments = open('dynamic_products/' + filename, 'rb')
-    emImage1 = MIMEImage(attachments.read())
-    attachments.close()
-    emImage1.add_header('Content-Disposition', "attachment; filename= " + filename)
-    em.attach(emImage1)
-
-    filename = 'bar_graph.png'
-    attachments = open('dynamic_products/' + filename, 'rb')
-    emImage2 = MIMEImage(attachments.read())
-    attachments.close()
-    emImage2.add_header('Content-Disposition', "attachment; filename= " + filename)
-    em.attach(emImage2)
-    
-    filename = 'keywords.txt'
-    attachments = open('dynamic_products/' + filename, 'rb')
-    emKeywords = MIMEBase('application', 'octet-stream')
-    emKeywords.set_payload((attachments).read())
-    encoders.encode_base64(emKeywords)
-    emKeywords.add_header('Content-Disposition', "attachment; filename= " + filename)
-    em.attach(emKeywords)
 
     # Cast as string
     text = em.as_string()
@@ -110,4 +84,21 @@ Feedback appreciated at contact@socialseafarer.com
     print()
     
     TIE_server.quit()
+
+
+old = 0 
+
+while True:
+    email_ref = db.reference("/emails/" + str(x) + "/email/")
+    new = email_ref.get()
+    sleep(2.0)
+    
+    print(".")
+    
+    if new == old:
+        continue
+    else:
+        print("new request")
+        old = new
+        contactus()
     
