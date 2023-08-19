@@ -90,8 +90,9 @@ h5 {
 
 .container-centre {
 width:100%;
+height:50%;
 text-align: center;
-display: inline-block
+display: inline-block;
 }
 
  .container-fixed{
@@ -346,6 +347,7 @@ ul {
 input[type=text], select, textarea {
     font-family:"Comfortaa";
     width:100%;
+    text-align: center;
     display: block;
     border: none;
     transition: left 0.3s ease-in-out;
@@ -354,6 +356,7 @@ input[type=text], select, textarea {
     box-sizing: border-box; /* Make sure that padding and width stays in place *//* Add a top margin */
     margin-bottom: 5%; /* Bottom margin */
     resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+    
   }
 
   /*.search:active+.searchBox; {
