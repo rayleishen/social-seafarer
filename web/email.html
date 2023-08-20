@@ -46,6 +46,12 @@ h4 {
   font-family: "Comfortaa";
 }
 
+p { 
+color: inherit;
+color:white;
+font-family: 'Comfortaa';
+}
+
 body {
   background: #D9D9D9;
   background-size: fill;
@@ -96,8 +102,7 @@ body {
 }
 
 .container-title{
-  display:flex;
-  flex-direction: column;
+  display:block;
   text-align: left;
   margin-left:5%;
 }
@@ -110,6 +115,7 @@ body {
 input[type="submit"],
 	button,
 	.button {
+    -webkit-appearance: none;
     font-family:"Comfortaa";
     font-size: 15px;
     background: none;
@@ -126,6 +132,7 @@ input[type="submit"],
 	input[type="submit"]:hover,
 	button:hover,
 	.button:hover {
+    -webkit-appearance: none;
     background-color: #023B53;
     border: 3px solid #023B53;
     color: #fff;
@@ -216,7 +223,7 @@ h2{
 </div>
 
 <div class = "container-center">
-<h3>Post was uploaded on {}, with a total of {} parent comments. <br><br>Tools used in this Analysis: <br> VADAR (Valence Aware Dictionary and Sentiment Reasoner)  RAKE-nltk (Rapid Automatic Keyword Extraction algorithm)<br><br>Any feedback is appreciated at contact@socialseafarer.com</h3>
+<h3>Post was uploaded on {}, with a total of {} parent comments. <br><br>Tools used in this Analysis: <br> VADAR (Valence Aware Dictionary and Sentiment Reasoner) <br> RAKE-nltk (Rapid Automatic Keyword Extraction algorithm)<br><br>Any feedback is appreciated at contact@socialseafarer.com</h3>
 </div>
 </div>
 </meta>

@@ -49,6 +49,7 @@ a:link{
 
 h2,h4,h5 {
   margin: 20px;
+  z-index: 2;
 }
 h1 {
     color:white;
@@ -90,7 +91,6 @@ h5 {
 
 .container-centre {
 width:100%;
-height:50%;
 text-align: center;
 display: inline-block;
 }
@@ -124,9 +124,42 @@ display: inline-block;
     padding-left: 20px;
     padding-right: 20px;
     height: 80%;
+    max-width: 15%;;
     margin-top:auto;
     margin-bottom:auto;
     transition: 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.container-text:hover {
+  transform: scale(1.1);
+}
+
+.container-text:hover 
+  .container-circle{
+  opacity: 30%;
+  border-radius: 0%;
+  overflow: visible;
+  height: 100%;
+  width: 100%;
+  margin:0px;
+  padding:0px;
+}
+
+.container-profiles{
+  text-align: center;
+  height:100%;
+  overflow:hidden;
+  transition: 0.3s ease-in-out;
+  position: relative;
+  bottom:0%;
+}
+
+.container-text:hover
+.container-profiles{
+position:relative;
+bottom: 100%;
+overflow: visible;
 }
 
 .container-updates {
@@ -146,6 +179,8 @@ display: inline-block;
   height: 200px;
   margin-top: 10%;
   border-radius: 50%;
+  transition: 0.3s ease-in-out;
+  z-index: 1;
 
 }
 
@@ -153,9 +188,6 @@ display: inline-block;
     transform: translate(0, -10px);
 }
 
-.container-images:hover{
-    transform: scale(1.1);
-}
 
 .container-images{
     column-width: 10px;
@@ -347,7 +379,7 @@ ul {
 input[type=text], select, textarea {
     font-family:"Comfortaa";
     width:100%;
-    text-align: center;
+    text-align: left;
     display: block;
     border: none;
     transition: left 0.3s ease-in-out;
@@ -596,7 +628,6 @@ section:contact(2n) {
     background-size:     cover;                    
     background-repeat:   no-repeat;
     background-position: center bottom; 
-    overflow:hidden;
 }
 
 #pageRedirect {
