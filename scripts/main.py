@@ -2,6 +2,10 @@ x = 374188
 from time import sleep
 import json
 
+import sys
+
+sys.path.insert(1, '/apps')
+
 #dbgrab#
 import firebase_admin
 from firebase_admin import credentials
@@ -51,6 +55,8 @@ def main():
     #main#
     import redditscrapper, youtubescrapper, twitterscrapper, instagramscrapper, sentimental_analysis, summarizer, emailer
 
+    import sys
+
     ###variables###
     #url = "https://www.reddit.com/r/technology/comments/1439n76/apples_vision_pro_is_a_3500_ticket_to_nowhere_a/"
     #num_top_comments = 99
@@ -80,18 +86,21 @@ def main():
         
     else:
         print("error, url is not of a supported site")
-        
+
     df = sentimental_analysis.run(site, num_top_comments, sens_vadar)
 
     sentimental_analysis.pie_chart(df)
-    sentimental_analysis.bar_graph(df)
+    #sentimental_analysis.bar_graph(df)
 
     summarizer.keywords(site, sens_rake)
+    summarizer.compile_summary()
 
     emailer.emailsender(site, email)
     
     
-old = 0 
+url_ref = db.reference("/requests/" + str(x) + "/url/")
+new = url_ref.get()
+old = new
 
 while True:
     url_ref = db.reference("/requests/" + str(x) + "/url/")
