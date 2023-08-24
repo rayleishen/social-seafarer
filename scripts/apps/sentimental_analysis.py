@@ -112,4 +112,4 @@ def bar_graph(df):
     plt.savefig('dynamic_products/bar_graph.png')
 
 
-run('youtube', 0, 0)
+#run('youtube', 0, 0)

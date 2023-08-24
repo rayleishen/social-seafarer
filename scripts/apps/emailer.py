@@ -25,17 +25,17 @@ def emailsender(site, reciever):
     if site=="reddit":
         postdata = "reddit_post"
     elif site=="youtube":
-        postdata = "youtube_post"
+        postdata = "yt_post"
 
     
     with open('json/'+ postdata +'.json') as p:
         post = json.load(p)
         
         ptitle = post["title"]
-        score = post["score"]
-        upvote_ratio = post["upvote_ratio"]
-        created_utc = post["created_utc"]
-        num_comments = post["num_comments"]
+        #score = post["score"]
+        #upvote_ratio = post["upvote_ratio"]
+        #created_utc = post["created_utc"]
+        #num_comments = post["num_comments"]
          
         p.close()
     
@@ -108,14 +108,17 @@ def emailsender(site, reciever):
 </div>
 
 <div class = "container-center">
-<h3>Post was uploaded on {}, with a total of {} parent comments. <br><br>Tools used in this Analysis: <br> VADAR (Valence Aware Dictionary and Sentiment Reasoner) <br> RAKE-nltk (Rapid Automatic Keyword Extraction algorithm)<br><br>Any feedback is appreciated at contact@socialseafarer.com</h3>
+<h3>Tools used in this Analysis: <br> VADAR (Valence Aware Dictionary and Sentiment Reasoner) <br> RAKE-nltk (Rapid Automatic Keyword Extraction algorithm)<br><br>Any feedback is appreciated at contact@socialseafarer.com</h3>
 </div>
 </div>
 </meta>
 </body>
 
 </html>
-    """.format(emailformat, ptitle, summary, sens_vadar, sens_rake, created_utc, num_comments)
+    """.format(emailformat, ptitle, summary, sens_vadar, sens_rake)
+
+#removed this part
+#Post was uploaded on {}, with a total of {} parent comments. <br><br>
 
     em = MIMEMultipart()
     em["From"] = sender

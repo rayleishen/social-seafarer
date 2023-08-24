@@ -34,11 +34,11 @@ def main():
     sens_vadar = int(sv_ref.get())
     sens_rake = int(sr_ref.get())
 
-    if num_top_comments == "0":
+    if num_top_comments == 0:
         num_top_comments = 99
-    if sens_vadar == "0":
+    if sens_vadar == 0:
         sens_vadar = 0.2
-    if sens_rake == "0":
+    if sens_rake == 0:
         sens_rake = 5
 
     request_data = {
@@ -97,6 +97,8 @@ def main():
     #sentimental_analysis.bar_graph(df)
 
     summarizer.keywords(site, sens_rake)
+
+    #ran out of openai api tokens LOL
     summarizer.compile_summary()
 
     emailer.emailsender(site, email)

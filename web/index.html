@@ -218,36 +218,6 @@
     
     const db = getDatabase();
 
-    
-    var url = document.getElementById("url");
-    var email = document.getElementById("email");
-    var key = document.getElementById("key"); 
-    var submitBtn = document.getElementById("submit");
-    var num_top_comments = document.getElementById("num_top_comments");
-    var sens_vadar = document.getElementById("sens_vadar");
-    var sens_rake = document.getElementById("sens_rake");
-    //var reqID = 0;
-
-
-    function InsertData() {
-        var reqID = parseInt(key.value); //key is now reqID for MVP!!!
-        set(ref(db, 'requests/'+ reqID),{
-            url: url.value,
-            email: email.value,
-            //key: key.value,
-            num_top_comments: num_top_comments.value,
-            sens_vadar: sens_vadar.value,
-            sens_rake: sens_rake.value
-        })
-        .then(()=>{
-            //reqID++;
-            alert("Data added successfully");
-        })
-        .catch((error)=>{
-            alert(error);
-        });
-    }
-
     var emailBtn = document.getElementById("send");
     var contactus_email = document.getElementById("contactus_email");
     var contactus_name = document.getElementById("contactus_name");
@@ -268,10 +238,7 @@
             alert(error);
         });
     }
-
-    submitBtn.addEventListener('click', InsertData);
     emailBtn.addEventListener('click', SendEmail);
-
 
 </script>
 

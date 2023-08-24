@@ -131,3 +131,4 @@ def grab(video_url, max_comments):
         
 #grab('https://www.youtube.com/watch?v=mqDpRTvGqEs', 0)
 #grab('https://www.youtube.com/watch?v=4BBJm4bPVDM', 0)
+#grab('youtube.com/watch?v=mqDpRTvGqEs', 0)
