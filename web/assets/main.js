@@ -65,14 +65,47 @@ function openNav() {
   document.getElementById("main").style.marginRight = "250px";
 }
 
-
-
-
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
   document.getElementById("main").style.marginRight = "0";
 }
+
+function expandBarurl() {
+  document.getElementById("url").style.width ="60%";
+}
+function expandBaremail() {
+  document.getElementById("email").style.width ="60%";
+}
+function expandBarkey() {
+  document.getElementById("key").style.width ="60%";
+}
+
+function urlBack() {
+  document.getElementById("start").scrollIntoView({behavior: "smooth"});
+  var element = document.getElementById("circ1");
+  element.classList.toggle("menu-circle-filled");
+}
+
+function emailBack() {
+  document.getElementById("middle").scrollIntoView({behavior: "smooth"});
+  var element = document.getElementById("circ2");
+  element.classList.toggle("menu-circle-filled");
+}
+
+function emailForward() {
+  document.getElementById("middle").scrollIntoView({behavior: "smooth"});
+  var element = document.getElementById("circ1");
+  element.classList.toggle("menu-circle-filled");
+}
+
+function keyForward() {
+  document.getElementById("end").scrollIntoView({behavior: "smooth"});
+  var element = document.getElementById("circ2");
+  element.classList.toggle("menu-circle-filled");
+}
+
+
 
 
 /* I screwed the toggle script up badly

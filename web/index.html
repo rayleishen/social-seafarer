@@ -14,7 +14,7 @@
 
 </head>
 <body class="page" id="index">
-    
+
 <!-- top menu text -->
 
 
@@ -22,9 +22,6 @@
 <!-- side bar dropdown-->
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a>Required fields*</a>
-    <input id="email" type="text" placeholder="Email">
-    <input id="key" type="number" placeholder="Key">
     <a>Optional fields*</a>
     <input id="num_top_comments" type="number" placeholder="Comments to sort:">
     <input id="sens_vadar" type="text" placeholder="Sentiment Sensitivity">
@@ -60,15 +57,19 @@
                 </div>
                  
                 <div class = "container flex-container">
+                    <button><a href="search.html">Begin</a></button>
+                    <button><a href="#about">How it works</a></button>
+                    
 
-                    <!--search bar-->
+                    <!--search bar
 
                     <input id="url" style="width: 60%" onkeyup="java()" type="text" name="search" class="p1" placeholder="Paste link...">
                     <input type="submit" id="submit" style="margin-left: 3%" value="Go >>">
 
                       
-                      <!-- open sidenav -->
+              
                         <button onclick="openNav()" style="margin-left:3%;"> <i class="fa-solid fa-gear"></i> Configurations</button>
+                    -->
                       
 
 
@@ -146,21 +147,14 @@
 
             <!-- input box -->
             <div class ="contact">
-            <!-- <form action="https://formsubmit.co/caleb05w@gmail.com" method="POST"> -->
+        
+                <input id="contactus_email" type="text" style="width:40%" placeholder="Your email..">
 
-                <!-- <label for="fname">First Name</label> -->
-                <!--<input type="email" name="firstname" placeholder="email address">-->
+                <input id="contactus_name" type="text" style="width:40%" name="name" placeholder="Your name..">
 
-                <input id="contactus_email" type="text" placeholder="Your email..">
+                <textarea id="contactus_body" name="subject" style="width:40%; height:200px;" placeholder="Subject..." style="height:200px"></textarea>
 
-                <!-- <label for="lname">Last Name</label> -->
-                <input id="contactus_name" type="text" name="name" placeholder="Your name..">
-
-                <!-- <label for="subject">Subject</label> -->
-                <textarea id="contactus_body" name="subject" placeholder="Subject..." style="height:200px"></textarea>
-
-                <input id="send" type="submit" value="Send">
-            <!-- </form> -->
+                <input id="send" type="submit"style="width:10%" value="Send">
         
             </div>
 

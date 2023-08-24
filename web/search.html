@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang = "eng">
+<head>
+
+<link rel="stylesheet" href="assets/css/main.css">
+<script src="https://kit.fontawesome.com/3d577348db.js" crossorigin="anonymous"></script>
+<!-- Load icon library -->
+<title>Social Seafarer</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+
+<style> .body {overflow:hidden;} </style>
+</head>
+
+<body>
+
+<div class="container-menu" id="pageRedirect" data-label="Home">
+
+<div id = start class="menu-section">
+  <div class="container-centre">
+
+ <!-- open sidenav -->
+ <button onclick="openNav()" style="position:fixed; right:2%; top:3%;"> <i class="fa-solid fa-gear"></i> Configurations</button>
+ <!-- side bar dropdown-->
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a>Optional fields*</a>
+  <input id="num_top_comments" type="number" placeholder="Comments to sort:">
+  <a>Ai's leniancy towards detecting bias*</a>
+  <input id="sens_vadar" type="text" placeholder="Sentiment Sensitivity">
+  <input id="sens_rake" type="text" placeholder="Keyword Sensitivity">
+</div>
+
+
+
+    <div class="menu-fixed">
+      <div class="circle container-centre">  
+        <img class="small-circle container-centre" src="assets/css/images/logo.png" alt="Logo" style="object-fit: contain; padding:20px; overflow:visible">
+      </div>
+      <div class= "container-circles flex-container">
+        <div class="menu-circle-filled"></div>
+        <div id=circ1 class="menu-circle"></div>
+        <div id=circ2 class="menu-circle"></div>
+      </div>
+   </div>
+
+   <div class="container" style="margin-top:10%">
+    <h2> What are we analyzing? </h2>
+    <div class=container-middle><input id="url" onkeyup="java()" onclick="expandBarurl()" type="text" name="search" class="p1" placeholder="Paste link..."></div>
+    <div class="container-middle">
+      <button onclick="emailForward()">Next >> </button>
+    </div>
+  </div> 
+</div> 
+</div>   
+
+<div id = middle class="menu-section">
+  <div class="container-centre">
+    <div class="container" style="margin-top:10%">
+    <h2> Where should we send it?</h2>
+    <div class=container-middle><input id="email" onkeyup="java()" onclick="expandBaremail()" type="text" name="search" class="p1" placeholder="Enter email..."></div>
+      <div class = "container-middle">
+        <button onclick="urlBack()"><< Back</button>
+        <button onclick="keyForward()">Next >> </button>
+      </div>
+      </div>
+  </div> 
+</div>  
+
+<div id="end" class="menu-section">
+  <div class="container-centre">
+    <div class="container" style="margin-top:10%">
+    <h2> What's your key? </h2>
+    <div class=container-middle><input id="key" onkeyup="java()" onclick="expandBarkey()" type="text" name="search" class="p1" placeholder="Enter key..."></div>
+    <div class ="container-middle">
+      <button onclick="emailBack()"><< Back</button>
+      <!--<input type="submit" id="submit" value="Go >>">-->
+      <button id="submit" value="Go >>">Go >></button>
+    </div>
+  </div> 
+</div>  
+</div> 
+
+
+  
+ 
+
+</div>
+</body>
+</html>
+
+<script src="assets/main.js"></script>

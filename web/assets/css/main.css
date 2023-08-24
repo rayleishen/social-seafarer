@@ -14,9 +14,7 @@ body[id="index"] {
     /* removes margins and padding from body and all elements.*/
     margin:0px; 
     padding:0px;
-    height: auto;
     min-height: 100%;
-
   }
 
 * {
@@ -93,6 +91,11 @@ h5 {
 width:100%;
 text-align: center;
 display: inline-block;
+}
+
+.container-middle{
+ margin: 0 auto;
+ text-align: center;
 }
 
  .container-fixed{
@@ -176,8 +179,8 @@ overflow: visible;
 }
 
 .container-circle {
-  width: 200px;
-  height: 200px;
+  width: 60%;
+  aspect-ratio : 1 / 1;
   margin-top: 10%;
   border-radius: 50%;
   transition: 0.3s ease-in-out;
@@ -200,12 +203,27 @@ width:100%;
     column-gap: 3%;
     width:100%;
     height:100%;
-    margin-top: 5%;
+    margin-top: 3%;
     display:flex;
     justify-content: center;
     text-align: center;
     transition: 0.5s ease-in-out;
     justify-content: center;
+}
+
+.container-circles{
+  margin: 1% auto;
+  column-gap: 1%;
+  text-align: center;
+  display:flex;
+  width:100%;
+  justify-content: center;
+}
+.container-menu{
+  display:flex;
+  overflow:hidden;
+  width:300vw;
+
 }
 
 .container-roadmap{
@@ -367,6 +385,20 @@ ul {
     /* invisible border keeps section properly formatted*/
   }
 
+.menu-section {
+    position:relative;
+    height: 100%;
+    width:100%;
+    margin-top:5%
+  }
+
+.menu-fixed{
+  position:fixed;
+  height:100;
+  width:100%;
+  transform: translate(0%, -0%);
+}
+
   /* built for the roadmap page so section nav dots arent messed up */
 .seperator {
     height: 100vh;
@@ -376,7 +408,12 @@ ul {
 
 .contact {
     margin-top: 5%;
-    width: 40%;
+    width: 100%;
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    column-gap: 3%;
+    justify-content: space-around;
 }
 
 .flush-left { /* positions absolute left */
@@ -385,27 +422,24 @@ ul {
 }
 
 
+input,textarea {
+  margin: 1% 0;
+}
+
 /* Style inputs with type="text", select elements and textareas */
 input[type=text], select, textarea {
     font-family:"Comfortaa";
-    width:100%;
+    width:10%;
+    height:5%;
     text-align: left;
-    display: block;
     border: none;
-    transition: left 0.3s ease-in-out;
+    outline:none;
     padding: 12px; /* Some padding */ 
     border-radius: 15px; /* Rounded borders */
     box-sizing: border-box; /* Make sure that padding and width stays in place *//* Add a top margin */
-    margin-bottom: 5%; /* Bottom margin */
-    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
-    
+    resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+    transition: 0.3s all ease-in-out;
   }
-
-  /*.search:active+.searchBox; {
-    left: 500px;
-
-  }
-  */
   
   /* Button */
 	input[type="submit"],
@@ -415,9 +449,11 @@ input[type=text], select, textarea {
     font-size: 15px;
     background: none;
     color: white;
-    border: 3px solid white;
+    border: 1px solid white;
     padding: 15px;
     border-radius: 15px; 
+    margin-right:1%;
+    margin-left:1%;
     margin-bottom: 5%; 
     cursor: pointer;
     transition: all 0.3s ease-in-out; /* animation stuff dw abt it */
@@ -428,7 +464,7 @@ input[type=text], select, textarea {
 	button:hover,
 	.button:hover {
     background-color: #023B53;
-    border: 3px solid #023B53;
+    border: 1px solid #023B53;
     color: #fff;
     transform: scale(1.1);
   }
@@ -462,6 +498,24 @@ input[type=text], select, textarea {
   width: 57.5px;
   border-radius: 50%;
 }
+
+.menu-circle-filled {
+  background:white;
+  height:11px;
+  width:11px;
+  border-radius: 50%;
+  color:white;
+}
+
+.menu-circle {
+  height:10px;
+  width:10px;
+  border-radius: 50%;
+  border:1px solid white;
+  color:white;
+  transition: all 0.3s ease-in-out;
+}
+
 
 .roadmap-circle {
   height: 20px;
@@ -581,7 +635,6 @@ section:contact(2n) {
   color: white;
   font-size: 10px;
   display: block;
-  margin-left:10%;
   transition: 0.3s;
 }
 
@@ -641,8 +694,9 @@ section:contact(2n) {
 }
 
 #pageRedirect {
-  background-color:#09697C;
   background-size: cover;
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 #pageRoadmap{
