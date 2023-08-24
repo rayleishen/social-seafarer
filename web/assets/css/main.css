@@ -17,6 +17,10 @@ body[id="index"] {
     min-height: 100%;
   }
 
+body {
+  overflow-x: hidden;
+}
+
 * {
     margin: 0;
     padding: 0;

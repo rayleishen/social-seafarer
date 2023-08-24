@@ -121,6 +121,6 @@ button.addEventListener("click", buttonPressed);
 
 /*mobile redirect*/
 if (screen.width <= 699) {
-document.location = "YOUR-MOBILE-SITE.com";
+document.location = "mobileRedirect.html";
 }
 
