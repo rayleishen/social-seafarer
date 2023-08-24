@@ -53,7 +53,7 @@ def emailsender(site, reciever):
 
         s.close()
 
-    with open('emailformat.txt', 'r') as e:
+    with open('txt/emailformat.txt', 'r') as e:
         emailformat = e.read()
 
         e.close()

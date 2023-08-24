@@ -38,7 +38,7 @@ def keywords(site, sens_rake):
     r=Rake()
     r.extract_keywords_from_text(clean_comments_string)
 
-    keywords_file = open("dynamic_products/keywords.txt", "w")    
+    keywords_file = open("dynamic_products/keywords.txt", "w", encoding="utf-8")    
         
     for rating, keyword in r.get_ranked_phrases_with_scores():
         if rating > sens_rake:
@@ -107,3 +107,4 @@ def compile_summary():
 
     # Rest of your existing code follows...
 
+keywords('youtube', 0)

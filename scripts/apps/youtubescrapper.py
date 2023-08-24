@@ -15,7 +15,7 @@ dev_key = data['youtube_dev']
 
 config_file.close()
 
-def grab(video_url):
+def grab(video_url, max_comments):
 
     """
     Examples:
@@ -74,6 +74,9 @@ def grab(video_url):
 
     video_comments = []
     
+    if max_comments == 0:
+        max_comments = 256
+
     # iterate video response
     while video_response:
        
@@ -85,9 +88,12 @@ def grab(video_url):
             comment = item['snippet']['topLevelComment']['snippet']['textDisplay']
             video_comments.append(comment)
             
+            if len(video_comments) > max_comments:
+                #video_response = False
+                break
             
             # counting number of reply of comment
-            replycount = item['snippet']['totalReplyCount']
+            # replycount = item['snippet']['totalReplyCount']
  
             # if reply is there
             #if replycount>0:
@@ -107,13 +113,15 @@ def grab(video_url):
             # empty reply list
             replies = []
  
-        # Again repeat
+        # Again repeat : idk wtf this code do -ray
         if 'nextPageToken' in video_response:
             video_response = youtube.commentThreads().list(
                     part = 'snippet,replies',
                     videoId = video_id,
                       pageToken = video_response['nextPageToken']
                 ).execute()
+
+        # write comments to csv
         else:
             comments = pd.DataFrame(video_comments, columns=['comment'])
             
@@ -121,4 +129,5 @@ def grab(video_url):
             break
         
         
-grab('https://youtu.be/UagcwsLlbD0')
+#grab('https://www.youtube.com/watch?v=mqDpRTvGqEs', 0)
+#grab('https://www.youtube.com/watch?v=4BBJm4bPVDM', 0)

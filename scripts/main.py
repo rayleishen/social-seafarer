@@ -53,9 +53,13 @@ def main():
         json.dump(request_data, f)
 
     #main#
-    import redditscrapper, youtubescrapper, twitterscrapper, instagramscrapper, sentimental_analysis, summarizer, emailer
-
-    import sys
+    import apps.redditscrapper as redditscrapper
+    import apps.youtubescrapper as youtubescrapper
+    import apps.twitterscrapper as twitterscrapper
+    import apps.instagramscrapper as instagramscrapper
+    import apps.sentimental_analysis as sentimental_analysis
+    import apps.summarizer as summarizer
+    import apps.emailer as emailer
 
     ###variables###
     #url = "https://www.reddit.com/r/technology/comments/1439n76/apples_vision_pro_is_a_3500_ticket_to_nowhere_a/"
@@ -73,7 +77,7 @@ def main():
         site = "reddit"
         
     elif "youtube.com" in url:
-        youtubescrapper.grab(url)
+        youtubescrapper.grab(url, num_top_comments)
         site = "youtube"
 
     elif "twitter.com" in url:
