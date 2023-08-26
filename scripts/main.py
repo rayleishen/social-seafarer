@@ -30,9 +30,9 @@ def main():
     url = url_ref.get()
     email = email_ref.get()
     #key = key_ref.get()
-    num_top_comments = int(ntc_ref.get())
-    sens_vadar = int(sv_ref.get())
-    sens_rake = int(sr_ref.get())
+    num_top_comments = float(ntc_ref.get())
+    sens_vadar = float(sv_ref.get())
+    sens_rake = float(sr_ref.get())
 
     if num_top_comments == 0:
         num_top_comments = 99
