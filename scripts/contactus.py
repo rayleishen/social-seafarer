@@ -86,7 +86,9 @@ def contactus():
     TIE_server.quit()
 
 
-old = 0 
+url_ref = db.reference("/emails/" + str(x) + "/email/")
+new = url_ref.get()
+old = new
 
 while True:
     email_ref = db.reference("/emails/" + str(x) + "/email/")
