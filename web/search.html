@@ -137,16 +137,22 @@
     var submitBtn = document.getElementById("submit");
 
 
-    var num_top_comments = 0;
-    var sens_vadar = 0;
-    var sens_rake = 0;
-
-
     var num_top_comments = document.getElementById("num_top_comments");
     var sens_vadar = document.getElementById("sens_vadar");
     var sens_rake = document.getElementById("sens_rake");
-    //var reqID = 0;
 
+    if(num_top_comments.value.length == 0){
+      num_top_comments.value = 99;
+    }
+    if(sens_vadar.value.length == 0){
+      sens_vadar.value = 0.2;
+    }
+    if(sens_rake.value.length == 0){
+      sens_rake.value = 5;
+    }
+
+
+    //var reqID = 0;
 
     function InsertData() {
         var reqID = parseInt(key.value); //key is now reqID for MVP!!!
