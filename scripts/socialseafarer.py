@@ -1,4 +1,4 @@
-x = 374188
+x = 3003
 from time import sleep
 import json
 
@@ -18,7 +18,7 @@ firebase_admin.initialize_app(cred, {
     'databaseURL': "https://social-seafarer-default-rtdb.firebaseio.com"
 })
 
-def main():
+def maincode():
     url_ref = db.reference("/requests/" + str(x) + "/url/")
     email_ref = db.reference("/requests/" + str(x) + "/email/")
     #key_ref = db.reference("/requests/" + str(x) + "/key/")
@@ -120,5 +120,5 @@ while True:
     else:
         print("new request")
         old = new
-        main()
+        maincode()
     
