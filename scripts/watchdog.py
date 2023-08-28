@@ -2,7 +2,7 @@ import subprocess
 import time
 
 
-main_script_path = "test.py"
+main_script_path = "socialseafarer.py"
 
 
 while True:

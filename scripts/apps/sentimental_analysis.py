@@ -89,6 +89,9 @@ def pie_chart(df):
 
     colors = sns.color_palette('pastel')[0:5]
 
+    print(len(data))
+    print(len(labels))
+
     #create pie chart
     plt.pie(data, labels = labels, colors = colors, autopct='%.0f%%')
     
