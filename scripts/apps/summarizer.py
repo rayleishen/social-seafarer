@@ -6,8 +6,8 @@ from rake_nltk import Rake
 import nltk
 
 #comments below lines out to save processing power
-nltk.download('punkt')
-nltk.download('stopwords')
+#nltk.download('punkt')
+#nltk.download('stopwords')
 
 import re
 import os
@@ -39,14 +39,20 @@ def keywords(site, sens_rake):
     r.extract_keywords_from_text(clean_comments_string)
 
     keywords_file = open("dynamic_products/keywords.txt", "w", encoding="utf-8")    
-        
+    
+    char_count = 0  # Initialize character count
+
     for rating, keyword in r.get_ranked_phrases_with_scores():
         if rating > sens_rake:
             #print(rating, keyword)
-            
             #rating = int(rating*100)/100
             #keywords_file.write(str(rating) + " " + keyword + "\n")
-            keywords_file.write(keyword + "\n")
+            keyword_length = len(keyword)
+            if char_count + keyword_length + 1 <= 3500:  # Check if adding keyword exceeds the limit
+                keywords_file.write(keyword + "\n")
+                char_count += keyword_length + 1
+            else:
+                break  # Stop adding keywords if limit is exceeded
             
     keywords_file.close()
 
@@ -74,7 +80,7 @@ def compile_summary():
     for line in lines:
         message = line.strip()
         message_tokens = len(message.split())  # Calculate the tokens in the message
-        if total_tokens + message_tokens + 1 <= 3750:  # Check if adding the line exceeds the limit
+        if total_tokens + message_tokens + 1 <= 3500:  # Check if adding the line exceeds the limit
             data.append(message)  # Only store the message content
             total_tokens += message_tokens + 1  # Add 2 for the space
 
