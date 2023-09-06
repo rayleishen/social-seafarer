@@ -10,8 +10,8 @@ while True:
     try:
         # Start the main script
         subprocess.run(["python", main_script_path])
-        print("social seafarer started")
+        print("social seafarer " + main_script_path + " started")
     except Exception as e:
-        print(f"Main script crashed: {e}")
+        print(f"Script crashed: {e}")
         print("Restarting in 5 seconds...")
         time.sleep(5)
