@@ -89,8 +89,8 @@ def pie_chart(df):
 
     colors = sns.color_palette('pastel')[0:5]
 
-    print("data points "+len(data))
-    print("labels "+len(labels))
+    print("data points "+str(len(data)))
+    print("labels "+str(len(labels)))
 
     #create pie chart
     plt.pie(data, labels = labels, colors = colors, autopct='%.0f%%')
@@ -115,4 +115,4 @@ def bar_graph(df):
     plt.savefig('dynamic_products/bar_graph.png')
 
 
-#run('youtube', 0, 0)
+run('reddit', 0, 0.1)

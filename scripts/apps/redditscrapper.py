@@ -57,4 +57,4 @@ def grab(url):
 
     comments.to_csv("csv/reddit_comments.csv", index=True)
 
-grab("https://www.reddit.com/r/gaming/comments/15yerot/random_guy_invades_the_gamescom_stage_to_ask/")
+grab("https://www.reddit.com/r/steinsgate/comments/15yfxsy/i_made_an_irl_amadeus_wip_code_in_comments/")
