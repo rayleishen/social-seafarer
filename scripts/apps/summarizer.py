@@ -57,6 +57,7 @@ def keywords(site, sens_rake):
     keywords_file.close()
 
 
+from openai import OpenAI
 
 def compile_summary():
     with open('json/config.json') as config_file:
@@ -64,7 +65,7 @@ def compile_summary():
 
     key = data['openai_key']
 
-    openai.api_key = key
+    client = OpenAI(api_key=key)
 
     # Define file paths
     input_file_path = 'dynamic_products/keywords.txt'
@@ -88,14 +89,14 @@ def compile_summary():
     keywords = '\n'.join(data)
     prompt = f'Summarize the general sentiment of the following keywords into one cohesive paragraph:\n{keywords}'
     
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model='gpt-3.5-turbo',
         messages = [{"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": prompt}],
         n=1,
         max_tokens=250  # You can adjust this value to control the length of the summary
     )
-    generated_texts = [choice.message["content"].strip() for choice in response["choices"]]
+    generated_texts = [response.choices[0].message.content.strip() for choice in response.choices[0]]
 
     summary = generated_texts[0]
     # print(summary) # For debugging
