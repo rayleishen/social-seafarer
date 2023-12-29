@@ -85,12 +85,25 @@ def run(site, num_top_comments, sens):
 
 def pie_chart(df):   
     data = df.label.value_counts(normalize=True) * 100
-    labels = ['Neutral', 'Negative', 'Positive']
+    # Determine unique sentiment labels in the data
+    unique_labels = df['label'].unique()
 
+    # Set the labels array based on unique sentiment labels
+    labels = list(unique_labels) if len(unique_labels) <= 3 else ['Neutral', 'Negative', 'Positive']
+
+    # Create a mapping dictionary for sentiment labels
+    label_mapping = {0: 'Neutral', 1: 'Positive', -1: 'Negative'}
+
+    # Replace numeric labels with corresponding sentiment labels in the labels array
+    labels = [label_mapping[label] for label in labels]
     colors = sns.color_palette('pastel')[0:5]
 
     print("data points "+str(len(data)))
     print("labels "+str(len(labels)))
+
+    '''while len(data) < len(labels):
+        new_row = pd.Series([0], index=[' '])
+        data = pd.concat([data, new_row])'''
 
     #create pie chart
     plt.pie(data, labels = labels, colors = colors, autopct='%.0f%%')
@@ -115,4 +128,5 @@ def bar_graph(df):
     plt.savefig('dynamic_products/bar_graph.png')
 
 
-run('reddit', 0, 0.1)
+df = run('reddit', 0, 0.1)
+pie_chart(df)

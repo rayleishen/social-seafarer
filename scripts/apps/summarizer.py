@@ -114,3 +114,4 @@ def compile_summary():
     # Rest of your existing code follows...
 
 keywords('reddit', 0)
+compile_summary()
